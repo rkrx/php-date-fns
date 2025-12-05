@@ -1,0 +1,19 @@
+<?php
+
+namespace DateFns\Groups\MonthHelpers;
+
+use DateFns\DateFns;
+use DateTimeImmutable;
+use PHPUnit\Framework\TestCase;
+
+class LastDayOfMonthTest extends TestCase {
+	/**
+	 * @test
+	 */
+	public function returns_last_day(): void {
+		$date = new DateTimeImmutable('2014-09-02 11:55:00');
+		$result = DateFns::lastDayOfMonth($date);
+
+		$this->assertEquals('2014-09-30 00:00:00', $result->format('Y-m-d H:i:s'));
+	}
+}

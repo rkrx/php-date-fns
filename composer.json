@@ -1,0 +1,46 @@
+{
+	"name": "rkr/date-fns",
+	"description": "An adaptation of js date-fns for PHP",
+	"prefer-stable": true,
+	"minimum-stability": "dev",
+	"require": {
+		"php": ">= 8.0"
+	},
+	"require-dev": {
+		"ocramius/package-versions": ">= 1.0",
+		"phpstan/phpstan": ">= 0.1",
+		"nette/neon": "^3.4",
+		"phake/phake": "~1",
+		"jetbrains/phpstorm-attributes": "^1.0",
+		"nette/php-generator": "^4.0",
+		"phpunit/phpunit": "^9.0",
+		"rector/rector": ">= 0.1"
+	},
+	"suggest": {
+		"ext-intl": "For intl-based functions",
+		"ext-json": "For json-based functions",
+		"ext-mbstring": "For mbstring-based functions",
+		"ext-xml": "For xml-based functions"
+	},
+	"autoload": {
+		"psr-4": {
+			"DateFns\\": "src/"
+		}
+	},
+	"autoload-dev": {
+		"psr-4": {
+			"DateFns\\": "tests/"
+		}
+	},
+	"scripts": {
+		"phpstan": "phpstan analyse -c phpstan.neon --memory-limit=2G",
+		"test": "phpunit --configuration phpunit.xml",
+		"stan": "phpstan analyse -c phpstan.neon --memory-limit=2G --no-ansi --no-progress --error-format=raw"
+	},
+	"config": {
+		"discard-changes": true,
+		"platform": {
+			"php": "8.0.12"
+		}
+	}
+}
