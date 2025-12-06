@@ -1,6 +1,7 @@
 {
 	"name": "rkr/date-fns",
 	"description": "An adaptation of js date-fns for PHP",
+	"license": "MIT",
 	"prefer-stable": true,
 	"minimum-stability": "dev",
 	"require": {
