@@ -34,10 +34,10 @@ echo DateFns::format($shifted, 'yyyy-MM-dd HH:mm:ss');
 
 - [`DateFns::add($date, array $duration): DateTimeInterface`](docs/add.md)<br />
   Add the specified years, months, weeks, days, hours, minutes, and seconds to the given date.
-- [`DateFns::closestIndexTo($dateToCompare, array $dates): ?int`](docs/closestIndexTo.md)<br />
-  Return an index of the closest date from the array comparing to the given date.
-- [`DateFns::closestTo($dateToCompare, array $dates): ?DateTimeInterface`](docs/closestTo.md)<br />
-  Return a date from the array closest to the given date.
+- [`DateFns::closestIndexTo($dateToCompare, DateTimeInterface|string|int|null ...$dates): ?int`](docs/closestIndexTo.md)<br />
+  Return an index of the closest date from the given dates comparing to the given date.
+- [`DateFns::closestTo($dateToCompare, DateTimeInterface|string|int|null ...$dates): ?DateTimeInterface`](docs/closestTo.md)<br />
+  Return a date from the given dates closest to the given date.
 - [`DateFns::compareAsc($dateLeft, $dateRight): int`](docs/compareAsc.md)<br />
   Compare the two dates and return -1, 0, or 1.
 - [`DateFns::compareDesc($dateLeft, $dateRight): int`](docs/compareDesc.md)<br />

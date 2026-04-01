@@ -2,13 +2,13 @@
 
 # closestTo
 
-Return a date from the array closest to the given date.
+Return a date from the given dates closest to the given date.
 
 
 
 ## Parameters
 - `dateToCompare` (DateTimeInterface|string|int|null)
-- `dates` (array)
+- `dates` (DateTimeInterface|string|int|null, variadic)
 
 ## Returns
 - `DateTimeInterface|null`
@@ -22,10 +22,10 @@ use DateFns\DateFns;
 use DateTimeImmutable;
 
 $dateToCompare = new DateTimeImmutable('2015-09-06 00:00:00');
-$result = DateFns::closestTo(dateToCompare, [
-    
+$result = DateFns::closestTo(
+  $dateToCompare,
   new DateTimeImmutable('2000-01-01 00:00:00'),
   new DateTimeImmutable('2030-01-01 00:00:00')
-]);
+);
 // => Tue Jan 01 2030 00:00:00
 ```

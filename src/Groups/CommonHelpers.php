@@ -78,13 +78,13 @@ trait CommonHelpers {
 	}
 
 	/**
-	 * Return an index of the closest date from the array comparing to the given date.
+	 * Return an index of the closest date from the given dates comparing to the given date.
 	 *
 	 * @param DateTimeInterface|string|int|null $dateToCompare
-	 * @param array<DateTimeInterface|string|int|null> $dates
+	 * @param DateTimeInterface|string|int|null ...$dates
 	 * @return int|null
 	 */
-	public static function closestIndexTo($dateToCompare, array $dates): ?int {
+	public static function closestIndexTo($dateToCompare, DateTimeInterface|string|int|null ...$dates): ?int {
 		$dateToCompare = self::ensureDateTime($dateToCompare);
 		$timeToCompare = (float) $dateToCompare->format('U.u');
 
@@ -108,15 +108,15 @@ trait CommonHelpers {
 	}
 
 	/**
-	 * Return a date from the array closest to the given date.
+	 * Return a date from the given dates closest to the given date.
 	 *
 	 * @param DateTimeInterface|string|int|null $dateToCompare
-	 * @param array<DateTimeInterface|string|int|null> $dates
+	 * @param DateTimeInterface|string|int|null ...$dates
 	 * @return DateTimeInterface|null
 	 */
-	public static function closestTo($dateToCompare, array $dates): ?DateTimeInterface {
+	public static function closestTo($dateToCompare, DateTimeInterface|string|int|null ...$dates): ?DateTimeInterface {
 		$normalizedDates = array_values($dates);
-		$index = self::closestIndexTo($dateToCompare, $normalizedDates);
+		$index = self::closestIndexTo($dateToCompare, ...$normalizedDates);
 
 		if($index === null) {
 			return null;
