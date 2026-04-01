@@ -20,6 +20,6 @@ Does 5 October 2014 fall on a weekend?
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::isWeekend(new DateTimeImmutable('2014-10-05 00:00:00'));
+$result = DateFns::isWeekend(date: new DateTimeImmutable('2014-10-05 00:00:00'));
 // => true
 ```

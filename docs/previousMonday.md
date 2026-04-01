@@ -20,6 +20,6 @@ When is the previous Monday before Jun, 18, 2021?
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::previousMonday(new DateTimeImmutable('2021-06-18 00:00:00'));
+$result = DateFns::previousMonday(date: new DateTimeImmutable('2021-06-18 00:00:00'));
 // => Mon June 14 2021 00:00:00
 ```

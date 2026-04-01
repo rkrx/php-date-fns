@@ -7,7 +7,8 @@ Return the array of hours within the specified time interval.
 
 
 ## Parameters
-- `interval` (array)
+- `start` (DateTimeInterface|string|int)
+- `end` (DateTimeInterface|string|int)
 - `options` (array)
 
 ## Returns
@@ -21,10 +22,10 @@ Each hour between 6 October 2014, 12:00 and 6 October 2014, 15:00
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::eachHourOfInterval([
-    'start' => new DateTimeImmutable('2014-10-06 12:00:00'),
-    'end' => new DateTimeImmutable('2014-10-06 15:00:00')
-]);;
+$result = DateFns::eachHourOfInterval(
+    start: new DateTimeImmutable('2014-10-06 12:00:00'),
+    end: new DateTimeImmutable('2014-10-06 15:00:00')
+);
 // => [
 //   Mon Oct 06 2014 12:00:00,
 //   Mon Oct 06 2014 13:00:00,

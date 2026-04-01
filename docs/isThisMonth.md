@@ -20,6 +20,6 @@ If today is 25 September 2014, is 15 September 2014 in this month?
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::isThisMonth(new DateTimeImmutable('2014-09-15 00:00:00'));
+$result = DateFns::isThisMonth(date: new DateTimeImmutable('2014-09-15 00:00:00'));
 // => true
 ```

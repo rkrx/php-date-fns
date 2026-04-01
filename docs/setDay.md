@@ -21,18 +21,17 @@ Set week day to Sunday, with the default weekStartsOn of Sunday:
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::setDay(new DateTimeImmutable('2014-09-01 00:00:00'), 0);
+$result = DateFns::setDay(date: new DateTimeImmutable('2014-09-01 00:00:00'), day: 0);
 // => Sun Aug 31 2014 00:00:00
 ```
 
-Set week day to Sunday, with a weekStartsOn of Monday:
+Set week day to Saturday:
 ```php
 <?php
 
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::setDay(new DateTimeImmutable('2014-09-01 00:00:00'), 0, [
-    'weekStartsOn' => 1 ]);
-// => Sun Sep 07 2014 00:00:00
+$result = DateFns::setDay(date: new DateTimeImmutable('2014-09-01 00:00:00'), day: 6);
+// => Sat Sep 06 2014 00:00:00
 ```

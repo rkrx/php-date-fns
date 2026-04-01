@@ -7,7 +7,8 @@ Return the array of weeks within the specified time interval.
 
 
 ## Parameters
-- `interval` (array)
+- `start` (DateTimeInterface|string|int)
+- `end` (DateTimeInterface|string|int)
 - `options` (array)
 
 ## Returns
@@ -21,10 +22,10 @@ Each week within interval 6 October 2014 - 23 November 2014:
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::eachWeekOfInterval([
-    'start' => new DateTimeImmutable('2014-10-06 00:00:00'),
-    'end' => new DateTimeImmutable('2014-11-23 00:00:00')
-]);
+$result = DateFns::eachWeekOfInterval(
+    start: new DateTimeImmutable('2014-10-06 00:00:00'),
+    end: new DateTimeImmutable('2014-11-23 00:00:00')
+);
 // => [
 //   Sun Oct 05 2014 00:00:00,
 //   Sun Oct 12 2014 00:00:00,

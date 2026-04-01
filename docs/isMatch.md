@@ -22,8 +22,10 @@ Match 11 February 2014 from middle-endian format:
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::isMatch('02/11/2014',
-    'MM/dd/yyyy');
+$result = DateFns::isMatch(
+    dateString: '02/11/2014',
+    formatString: 'MM/dd/yyyy'
+);
 // => true
 ```
 
@@ -35,8 +37,12 @@ use DateFns\DateFns;
 use DateTimeImmutable;
 
 $eo = 'eo';
-$result = DateFns::isMatch('28-a de februaro', "do 'de' MMMM", [
-    'locale' => $eo
-]);
+$result = DateFns::isMatch(
+    dateString: '28-a de februaro',
+    formatString: "do 'de' MMMM",
+    options: [
+        'locale' => $eo
+        ]
+);
 // => true
 ```

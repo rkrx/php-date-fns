@@ -20,6 +20,6 @@ How many days are in 2012?
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::getDaysInYear(new DateTimeImmutable('2012-01-01 00:00:00'));
+$result = DateFns::getDaysInYear(date: new DateTimeImmutable('2012-01-01 00:00:00'));
 // => 366
 ```

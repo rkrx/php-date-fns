@@ -20,6 +20,6 @@ When is the next Friday after Mar, 22, 2020?
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::nextFriday(new DateTimeImmutable('2020-03-22 00:00:00'));
+$result = DateFns::nextFriday(date: new DateTimeImmutable('2020-03-22 00:00:00'));
 // => Fri Mar 27 2020 00:00:00
 ```

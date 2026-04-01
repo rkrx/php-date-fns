@@ -20,6 +20,6 @@ When is the previous Friday before Jun, 19, 2021?
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::previousFriday(new DateTimeImmutable('2021-06-19 00:00:00'));
+$result = DateFns::previousFriday(date: new DateTimeImmutable('2021-06-19 00:00:00'));
 // => Fri June 18 2021 00:00:00
 ```

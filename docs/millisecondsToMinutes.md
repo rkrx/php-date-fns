@@ -20,7 +20,7 @@ Convert 60000 milliseconds to minutes:
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::millisecondsToMinutes(60000);
+$result = DateFns::millisecondsToMinutes(milliseconds: 60000);
 // => 1
 ```
 
@@ -31,6 +31,6 @@ It uses floor rounding:
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::millisecondsToMinutes(119999);
+$result = DateFns::millisecondsToMinutes(milliseconds: 119999);
 // => 1
 ```

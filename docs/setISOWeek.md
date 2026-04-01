@@ -21,6 +21,6 @@ Set the 53rd ISO week to 7 August 2004:
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::setISOWeek(new DateTimeImmutable('2004-08-07 00:00:00'), 53);
+$result = DateFns::setISOWeek(date: new DateTimeImmutable('2004-08-07 00:00:00'), week: 53);
 // => Sat Jan 01 2005 00:00:00
 ```

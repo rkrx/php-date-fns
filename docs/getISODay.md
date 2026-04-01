@@ -20,6 +20,6 @@ Which day of the ISO week is 26 February 2012?
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::getISODay(new DateTimeImmutable('2012-02-26 00:00:00'));
+$result = DateFns::getISODay(date: new DateTimeImmutable('2012-02-26 00:00:00'));
 // => 7
 ```

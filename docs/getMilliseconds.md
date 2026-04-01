@@ -20,6 +20,6 @@ Get the milliseconds of 29 February 2012 11:45:05.123:
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::getMilliseconds(new DateTimeImmutable('2012-02-29 11:45:05'));
+$result = DateFns::getMilliseconds(date: new DateTimeImmutable('2012-02-29 11:45:05'));
 // => 123
 ```

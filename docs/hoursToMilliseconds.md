@@ -20,6 +20,6 @@ Convert 2 hours to milliseconds:
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::hoursToMilliseconds(2);
+$result = DateFns::hoursToMilliseconds(hours: 2);
 // => 7200000
 ```

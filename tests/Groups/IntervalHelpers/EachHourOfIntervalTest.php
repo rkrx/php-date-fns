@@ -10,8 +10,9 @@ class EachHourOfIntervalTest extends TestCase {
 	public function returns_array_of_hours_within_interval(): void {
 		$start = '2014-10-06 12:00';
 		$end = '2014-10-06 15:00';
+		$interval = [$start, $end];
 
-		$result = DateFns::eachHourOfInterval(['start' => $start, 'end' => $end]);
+		$result = DateFns::eachHourOfInterval(...$interval);
 
 		$this->assertCount(4, $result);
 		$this->assertEquals('2014-10-06 12:00:00', $result[0]->format('Y-m-d H:i:s'));
@@ -24,8 +25,9 @@ class EachHourOfIntervalTest extends TestCase {
 	public function handles_step_option(): void {
 		$start = '2014-10-06 12:00';
 		$end = '2014-10-06 15:00';
+		$interval = [$start, $end];
 
-		$result = DateFns::eachHourOfInterval(['start' => $start, 'end' => $end], ['step' => 2]);
+		$result = DateFns::eachHourOfInterval(...$interval, options: ['step' => 2]);
 
 		$this->assertCount(2, $result);
 		$this->assertEquals('2014-10-06 12:00:00', $result[0]->format('Y-m-d H:i:s'));

@@ -25,7 +25,9 @@ function isToday<DateType extends Date>(
 ): boolean [
   // If we were to use `new DateTimeImmutable()` directly, the function would  behave
   // differently in different timezones and return false for the same date.
-  return DateFns::isSameDay(date,
-    'DateFns' =>:constructNow(date));
+  return DateFns::isSameDay(
+    dateLeft: date,
+    dateRight: 'DateFns' =>:constructNow(date)
+);
 ];
 ```

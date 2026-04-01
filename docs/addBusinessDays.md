@@ -21,6 +21,6 @@ Add 10 business days to 1 September 2014:
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::addBusinessDays(new DateTimeImmutable('2014-09-01 00:00:00'), 10);
+$result = DateFns::addBusinessDays(date: new DateTimeImmutable('2014-09-01 00:00:00'), amount: 10);
 // => Mon Sep 15 2014 00:00:00 (skipped weekend days)
 ```

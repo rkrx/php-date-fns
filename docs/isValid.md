@@ -20,7 +20,7 @@ For the valid date:
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::isValid(new DateTimeImmutable('2014-02-31 00:00:00'));
+$result = DateFns::isValid(date: new DateTimeImmutable('2014-02-31 00:00:00'));
 // => true
 ```
 
@@ -31,7 +31,7 @@ For the value, convertible into a date:
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::isValid(1393804800000);
+$result = DateFns::isValid(date: 1393804800000);
 // => true
 ```
 
@@ -42,6 +42,6 @@ For the invalid date:
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::isValid(new DateTimeImmutable(''));
+$result = DateFns::isValid(date: new DateTimeImmutable(''));
 // => false
 ```

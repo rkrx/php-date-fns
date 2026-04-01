@@ -20,6 +20,6 @@ When is the next Wednesday after Mar, 22, 2020?
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::nextWednesday(new DateTimeImmutable('2020-03-22 00:00:00'));
+$result = DateFns::nextWednesday(date: new DateTimeImmutable('2020-03-22 00:00:00'));
 // => Wed Mar 25 2020 00:00:00
 ```

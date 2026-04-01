@@ -22,7 +22,7 @@ use DateFns\DateFns;
 use DateTimeImmutable;
 
 $result = DateFns::formatDistanceToNowStrict(
-  new DateTimeImmutable('2014-07-02 00:00:00')
+    date: new DateTimeImmutable('2014-07-02 00:00:00')
 );
 // => '6 months'
 ```
@@ -35,7 +35,7 @@ use DateFns\DateFns;
 use DateTimeImmutable;
 
 $result = DateFns::formatDistanceToNowStrict(
-  new DateTimeImmutable('2015-01-01 00:00:15')
+    date: new DateTimeImmutable('2015-01-01 00:00:15')
 );
 // => '15 seconds'
 ```
@@ -48,9 +48,9 @@ use DateFns\DateFns;
 use DateTimeImmutable;
 
 $result = DateFns::formatDistanceToNowStrict(
-  new DateTimeImmutable('2016-01-01 00:00:00'),
-  [
-    'addSuffix' => true]
+    date: new DateTimeImmutable('2016-01-01 00:00:00'),
+    options: [
+        'addSuffix' => true]
 );
 // => 'in 1 year'
 ```
@@ -62,10 +62,13 @@ If today is 28 January 2015, what is the distance to 1 January 2015, in months, 
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::formatDistanceToNowStrict(new DateTimeImmutable('2015-01-01 00:00:00'), [
-    'unit' => 'month',
-    'roundingMethod' => 'ceil'
-]);
+$result = DateFns::formatDistanceToNowStrict(
+    date: new DateTimeImmutable('2015-01-01 00:00:00'),
+    options: [
+        'unit' => 'month',
+        'roundingMethod' => 'ceil'
+        ]
+);
 // => '1 month'
 ```
 
@@ -78,9 +81,9 @@ use DateTimeImmutable;
 
 $eoLocale = require('date-fns/locale/eo');
 $result = DateFns::formatDistanceToNowStrict(
-  new DateTimeImmutable('2016-01-01 00:00:00'),
-  [
-    'locale' => eoLocale]
+    date: new DateTimeImmutable('2016-01-01 00:00:00'),
+    options: [
+        'locale' => eoLocale]
 );
 // => '1 jaro'
 ```

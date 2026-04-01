@@ -21,6 +21,6 @@ Subtract 5 ISO week-numbering years from 1 September 2014:
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::subISOWeekYears(new DateTimeImmutable('2014-09-01 00:00:00'), 5);
+$result = DateFns::subISOWeekYears(date: new DateTimeImmutable('2014-09-01 00:00:00'), amount: 5);
 // => Mon Aug 31 2009 00:00:00
 ```

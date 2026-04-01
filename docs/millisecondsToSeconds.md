@@ -20,7 +20,7 @@ Convert 1000 milliseconds to seconds:
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::millisecondsToSeconds(1000);
+$result = DateFns::millisecondsToSeconds(milliseconds: 1000);
 // => 1
 ```
 
@@ -31,6 +31,6 @@ It uses floor rounding:
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::millisecondsToSeconds(1999);
+$result = DateFns::millisecondsToSeconds(milliseconds: 1999);
 // => 1
 ```

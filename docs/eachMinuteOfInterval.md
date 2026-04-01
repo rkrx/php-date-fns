@@ -7,7 +7,8 @@ Return the array of minutes within the specified time interval.
 
 
 ## Parameters
-- `interval` (array)
+- `start` (DateTimeInterface|string|int)
+- `end` (DateTimeInterface|string|int)
 - `options` (array)
 
 ## Returns
@@ -21,10 +22,10 @@ Each minute between 14 October 2020, 13:00 and 14 October 2020, 13:03
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::eachMinuteOfInterval([
-    'start' => new DateTimeImmutable('2014-10-14 13:00:00'),
-    'end' => new DateTimeImmutable('2014-10-14 13:03:00')
-]);
+$result = DateFns::eachMinuteOfInterval(
+    start: new DateTimeImmutable('2014-10-14 13:00:00'),
+    end: new DateTimeImmutable('2014-10-14 13:03:00')
+);
 // => [
 //   Wed Oct 14 2014 13:00:00,
 //   Wed Oct 14 2014 13:01:00,

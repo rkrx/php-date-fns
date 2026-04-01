@@ -21,7 +21,7 @@ Represent 18 September 2019 in RFC 3339 format:
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-DateFns::formatRFC3339(new DateTimeImmutable('2019-09-18 19:00:52'));
+DateFns::formatRFC3339(date: new DateTimeImmutable('2019-09-18 19:00:52'));
 // => '2019-09-18T19:00:52Z'
 ```
 
@@ -32,8 +32,11 @@ Represent 18 September 2019 in RFC 3339 format, 3 digits of second fraction
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-DateFns::formatRFC3339(new DateTimeImmutable('2019-09-18 19:00:52'), [
-    'fractionDigits' => 3
-]);
+DateFns::formatRFC3339(
+    date: new DateTimeImmutable('2019-09-18 19:00:52'),
+    options: [
+        'fractionDigits' => 3
+        ]
+);
 // => '2019-09-18T19:00:52.234Z'
 ```

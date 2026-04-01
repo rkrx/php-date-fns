@@ -20,6 +20,6 @@ Get the timestamp of 29 February 2012 11:45:05 CET:
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::getUnixTime(new DateTimeImmutable('2012-02-29 11:45:05'));
+$result = DateFns::getUnixTime(date: new DateTimeImmutable('2012-02-29 11:45:05'));
 // => 1330512305
 ```

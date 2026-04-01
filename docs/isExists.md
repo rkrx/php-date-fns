@@ -22,7 +22,7 @@ For the valid date:
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::isExists(2018, 0, 31);
+$result = DateFns::isExists(year: 2018, month: 0, day: 31);
 // => true
 ```
 
@@ -33,6 +33,6 @@ For the invalid date:
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::isExists(2018, 1, 31);
+$result = DateFns::isExists(year: 2018, month: 1, day: 31);
 // => false
 ```

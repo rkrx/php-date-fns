@@ -21,6 +21,6 @@ Are 29 December 2003 and 2 January 2005 in the same ISO week-numbering year?
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::isSameISOWeekYear(new DateTimeImmutable('2003-12-29 00:00:00'), new DateTimeImmutable('2005-01-02 00:00:00'));
+$result = DateFns::isSameISOWeekYear(dateLeft: new DateTimeImmutable('2003-12-29 00:00:00'), dateRight: new DateTimeImmutable('2005-01-02 00:00:00'));
 // => true
 ```

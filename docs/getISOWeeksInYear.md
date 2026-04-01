@@ -20,6 +20,6 @@ How many weeks are in ISO week-numbering year 2015?
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::getISOWeeksInYear(new DateTimeImmutable('2015-02-11 00:00:00'));
+$result = DateFns::getISOWeeksInYear(date: new DateTimeImmutable('2015-02-11 00:00:00'));
 // => 53
 ```

@@ -21,6 +21,6 @@ Subtract 5 months from 1 February 2015:
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::subMonths(new DateTimeImmutable('2015-02-01 00:00:00'), 5);
+$result = DateFns::subMonths(date: new DateTimeImmutable('2015-02-01 00:00:00'), amount: 5);
 // => Mon Sep 01 2014 00:00:00
 ```

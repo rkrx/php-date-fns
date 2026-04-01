@@ -20,12 +20,16 @@ Returns the number of milliseconds in the specified duration parts.
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-DateFns::milliseconds([
-    'years' => 1 ]);
+DateFns::milliseconds(
+    duration: [
+        'years' => 1 ]
+);
 // => 31556952000
 
 // 3 months in milliseconds
-DateFns::milliseconds([
-    'months' => 3 ]);
+DateFns::milliseconds(
+    duration: [
+        'months' => 3 ]
+);
 // => 7889238000
 ```

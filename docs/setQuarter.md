@@ -21,6 +21,6 @@ Set the 2nd quarter to 2 July 2014:
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::setQuarter(new DateTimeImmutable('2014-07-02 00:00:00'), 2);
+$result = DateFns::setQuarter(date: new DateTimeImmutable('2014-07-02 00:00:00'), quarter: 2);
 // => Wed Apr 02 2014 00:00:00
 ```

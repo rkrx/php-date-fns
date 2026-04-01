@@ -20,6 +20,6 @@ Is 28 February 2014 the last day of a month?
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::isLastDayOfMonth(new DateTimeImmutable('2014-02-28 00:00:00'));
+$result = DateFns::isLastDayOfMonth(date: new DateTimeImmutable('2014-02-28 00:00:00'));
 // => true
 ```

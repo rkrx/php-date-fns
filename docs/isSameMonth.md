@@ -21,7 +21,7 @@ Are 2 September 2014 and 25 September 2014 in the same month?
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::isSameMonth(new DateTimeImmutable('2014-09-02 00:00:00'), new DateTimeImmutable('2014-09-25 00:00:00'));
+$result = DateFns::isSameMonth(dateLeft: new DateTimeImmutable('2014-09-02 00:00:00'), dateRight: new DateTimeImmutable('2014-09-25 00:00:00'));
 // => true
 ```
 
@@ -32,6 +32,6 @@ Are 2 September 2014 and 25 September 2015 in the same month?
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::isSameMonth(new DateTimeImmutable('2014-09-02 00:00:00'), new DateTimeImmutable('2015-09-25 00:00:00'));
+$result = DateFns::isSameMonth(dateLeft: new DateTimeImmutable('2014-09-02 00:00:00'), dateRight: new DateTimeImmutable('2015-09-25 00:00:00'));
 // => false
 ```

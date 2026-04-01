@@ -24,8 +24,9 @@ use DateTimeImmutable;
 // A function that clones a date preserving the original type
 function cloneDate<DateType extends Date>(date: DateType): DateType [
   return DateFns::constructFrom(
-    date, // Use constructor from the given date
-    date.DateFns::getTime() // Use the date value to create a new date
-  );
+    referenceDate: date,
+    value: // Use constructor from the given date
+        date.DateFns::getTime() // Use the date value to create a new date
+);
 ]
 ```

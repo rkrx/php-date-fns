@@ -23,8 +23,8 @@ use DateFns\DateFns;
 use DateTimeImmutable;
 
 $result = DateFns::differenceInMinutes(
-  new DateTimeImmutable('2014-07-02 12:20:00'),
-  new DateTimeImmutable('2014-07-02 12:07:59')
+    dateLeft: new DateTimeImmutable('2014-07-02 12:20:00'),
+    dateRight: new DateTimeImmutable('2014-07-02 12:07:59')
 );
 // => 12
 ```
@@ -37,8 +37,8 @@ use DateFns\DateFns;
 use DateTimeImmutable;
 
 $result = DateFns::differenceInMinutes(
-  new DateTimeImmutable('2000-01-01 10:00:00'),
-  new DateTimeImmutable('2000-01-01 10:01:59')
+    dateLeft: new DateTimeImmutable('2000-01-01 10:00:00'),
+    dateRight: new DateTimeImmutable('2000-01-01 10:01:59')
 );
 // => -1
 ```

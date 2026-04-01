@@ -20,6 +20,6 @@ The start of a quarter for 2 September 2014 11:55:00:
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::startOfQuarter(new DateTimeImmutable('2014-09-02 11:55:00'));
+$result = DateFns::startOfQuarter(date: new DateTimeImmutable('2014-09-02 11:55:00'));
 // => Tue Jul 01 2014 00:00:00
 ```

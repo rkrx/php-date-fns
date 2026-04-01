@@ -21,6 +21,6 @@ Set 300 milliseconds to 1 September 2014 11:30:40.500:
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::setMilliseconds(new DateTimeImmutable('2014-09-01 11:30:40'), 300);
+$result = DateFns::setMilliseconds(date: new DateTimeImmutable('2014-09-01 11:30:40'), milliseconds: 300);
 // => Mon Sep 01 2014 11:30:40.300
 ```

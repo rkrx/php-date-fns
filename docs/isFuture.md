@@ -20,6 +20,6 @@ If today is 6 October 2014, is 31 December 2014 in the future?
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::isFuture(new DateTimeImmutable('2014-12-31 00:00:00'));
+$result = DateFns::isFuture(date: new DateTimeImmutable('2014-12-31 00:00:00'));
 // => true
 ```

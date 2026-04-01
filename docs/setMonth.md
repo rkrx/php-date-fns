@@ -21,6 +21,6 @@ Set February to 1 September 2014:
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::setMonth(new DateTimeImmutable('2014-09-01 00:00:00'), 1);
+$result = DateFns::setMonth(date: new DateTimeImmutable('2014-09-01 00:00:00'), month: 1);
 // => Sat Feb 01 2014 00:00:00
 ```

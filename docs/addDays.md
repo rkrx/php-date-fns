@@ -21,6 +21,6 @@ Add 10 days to 1 September 2014:
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::addDays(new DateTimeImmutable('2014-09-01 00:00:00'), 10);
+$result = DateFns::addDays(date: new DateTimeImmutable('2014-09-01 00:00:00'), amount: 10);
 // => Thu Sep 11 2014 00:00:00
 ```

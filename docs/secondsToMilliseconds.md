@@ -20,6 +20,6 @@ Convert 2 seconds into milliseconds
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::secondsToMilliseconds(2);
+$result = DateFns::secondsToMilliseconds(seconds: 2);
 // => 2000
 ```

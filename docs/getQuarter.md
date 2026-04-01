@@ -20,6 +20,6 @@ Which quarter is 2 July 2014?
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::getQuarter(new DateTimeImmutable('2014-07-02 00:00:00'));
+$result = DateFns::getQuarter(date: new DateTimeImmutable('2014-07-02 00:00:00'));
 // => 3
 ```

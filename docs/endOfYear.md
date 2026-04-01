@@ -20,6 +20,6 @@ The end of a year for 2 September 2014 11:55:00:
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::endOfYear(new DateTimeImmutable('2014-09-02 11:55:00'));
+$result = DateFns::endOfYear(date: new DateTimeImmutable('2014-09-02 11:55:00'));
 // => Wed Dec 31 2014 23:59:59.999
 ```

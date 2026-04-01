@@ -10,8 +10,9 @@ class EachMinuteOfIntervalTest extends TestCase {
 	public function returns_array_of_minutes_within_interval(): void {
 		$start = '2014-10-06 12:00';
 		$end = '2014-10-06 12:03';
+		$interval = [$start, $end];
 
-		$result = DateFns::eachMinuteOfInterval(['start' => $start, 'end' => $end]);
+		$result = DateFns::eachMinuteOfInterval(...$interval);
 
 		$this->assertCount(4, $result);
 		$this->assertEquals('2014-10-06 12:00:00', $result[0]->format('Y-m-d H:i:s'));
@@ -24,8 +25,9 @@ class EachMinuteOfIntervalTest extends TestCase {
 	public function handles_step_option(): void {
 		$start = '2014-10-06 12:00';
 		$end = '2014-10-06 12:04';
+		$interval = [$start, $end];
 
-		$result = DateFns::eachMinuteOfInterval(['start' => $start, 'end' => $end], ['step' => 2]);
+		$result = DateFns::eachMinuteOfInterval(...$interval, options: ['step' => 2]);
 
 		$this->assertCount(3, $result);
 		$this->assertEquals('2014-10-06 12:00:00', $result[0]->format('Y-m-d H:i:s'));

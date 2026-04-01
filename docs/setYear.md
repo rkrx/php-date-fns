@@ -21,6 +21,6 @@ Set year 2013 to 1 September 2014:
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::setYear(new DateTimeImmutable('2014-09-01 00:00:00'), 2013);
+$result = DateFns::setYear(date: new DateTimeImmutable('2014-09-01 00:00:00'), year: 2013);
 // => Sun Sep 01 2013 00:00:00
 ```

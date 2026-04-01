@@ -20,7 +20,7 @@ Convert 14 days to weeks:
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::daysToWeeks(14);
+$result = DateFns::daysToWeeks(days: 14);
 // => 2
 ```
 
@@ -31,6 +31,6 @@ It uses trunc rounding:
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::daysToWeeks(13);
+$result = DateFns::daysToWeeks(days: 13);
 // => 1
 ```

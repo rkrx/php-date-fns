@@ -20,6 +20,6 @@ When is the previous Saturday before Jun, 20, 2021?
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::previousSaturday(new DateTimeImmutable('2021-06-20 00:00:00'));
+$result = DateFns::previousSaturday(date: new DateTimeImmutable('2021-06-20 00:00:00'));
 // => Sat June 19 2021 00:00:00
 ```

@@ -22,8 +22,8 @@ use DateFns\DateFns;
 use DateTimeImmutable;
 
 $result = DateFns::isSameSecond(
-  new DateTimeImmutable('2014-09-04 06:30:15'),
-  new DateTimeImmutable('2014-09-04 06:30:15')
+    dateLeft: new DateTimeImmutable('2014-09-04 06:30:15'),
+    dateRight: new DateTimeImmutable('2014-09-04 06:30:15')
 );
 // => true
 ```
@@ -36,8 +36,8 @@ use DateFns\DateFns;
 use DateTimeImmutable;
 
 $result = DateFns::isSameSecond(
-  new DateTimeImmutable('2014-09-04 06:00:15'),
-  new DateTimeImmutable('2014-09-04 06:01:15')
+    dateLeft: new DateTimeImmutable('2014-09-04 06:00:15'),
+    dateRight: new DateTimeImmutable('2014-09-04 06:01:15')
 );
 // => false
 ```
@@ -50,8 +50,8 @@ use DateFns\DateFns;
 use DateTimeImmutable;
 
 $result = DateFns::isSameSecond(
-  new DateTimeImmutable('2014-09-04 06:00:15'),
-  new DateTimeImmutable('2014-09-05 06:00:15')
+    dateLeft: new DateTimeImmutable('2014-09-04 06:00:15'),
+    dateRight: new DateTimeImmutable('2014-09-05 06:00:15')
 );
 // => false
 ```

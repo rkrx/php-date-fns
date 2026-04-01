@@ -23,15 +23,15 @@ use DateFns\DateFns;
 use DateTimeImmutable;
 
 DateFns::intlFormatDistance(
-  new DateTimeImmutable('1986-04-04 11:30:00'),
-  new DateTimeImmutable('1986-04-04 10:30:00')
+    laterDate: new DateTimeImmutable('1986-04-04 11:30:00'),
+    earlierDate: new DateTimeImmutable('1986-04-04 10:30:00')
 );
 // => 'in 1 hour'
 
 // What is the distance between the dates when the fist date is before the second?
 DateFns::intlFormatDistance(
-  new DateTimeImmutable('1986-04-04 10:30:00'),
-  new DateTimeImmutable('1986-04-04 11:30:00')
+    laterDate: new DateTimeImmutable('1986-04-04 10:30:00'),
+    earlierDate: new DateTimeImmutable('1986-04-04 11:30:00')
 );
 // => '1 hour ago'
 ```
@@ -44,10 +44,10 @@ use DateFns\DateFns;
 use DateTimeImmutable;
 
 DateFns::intlFormatDistance(
-  new DateTimeImmutable('1987-07-04 10:30:00'),
-  new DateTimeImmutable('1986-04-04 10:30:00'),
-  [
-    'unit' => 'quarter' ]
+    laterDate: new DateTimeImmutable('1987-07-04 10:30:00'),
+    earlierDate: new DateTimeImmutable('1986-04-04 10:30:00'),
+    options: [
+        'unit' => 'quarter' ]
 );
 // => 'in 5 quarters'
 ```
@@ -60,10 +60,10 @@ use DateFns\DateFns;
 use DateTimeImmutable;
 
 DateFns::intlFormatDistance(
-  new DateTimeImmutable('1986-04-04 11:30:00'),
-  new DateTimeImmutable('1986-04-04 10:30:00'),
-  [
-    'locale' => 'es' ]
+    laterDate: new DateTimeImmutable('1986-04-04 11:30:00'),
+    earlierDate: new DateTimeImmutable('1986-04-04 10:30:00'),
+    options: [
+        'locale' => 'es' ]
 );
 // => 'dentro de 1 hora'
 ```
@@ -76,10 +76,10 @@ use DateFns\DateFns;
 use DateTimeImmutable;
 
 DateFns::intlFormatDistance(
-  new DateTimeImmutable('1986-04-05 11:30:00'),
-  new DateTimeImmutable('1986-04-04 11:30:00'),
-  [
-    'numeric' => 'always' ]
+    laterDate: new DateTimeImmutable('1986-04-05 11:30:00'),
+    earlierDate: new DateTimeImmutable('1986-04-04 11:30:00'),
+    options: [
+        'numeric' => 'always' ]
 );
 // => 'in 1 day'
 ```
@@ -92,10 +92,10 @@ use DateFns\DateFns;
 use DateTimeImmutable;
 
 DateFns::intlFormatDistance(
-  new DateTimeImmutable('1988-04-04 11:30:00'),
-  new DateTimeImmutable('1986-04-04 11:30:00'),
-  [
-    'style' => 'short' ]
+    laterDate: new DateTimeImmutable('1988-04-04 11:30:00'),
+    earlierDate: new DateTimeImmutable('1986-04-04 11:30:00'),
+    options: [
+        'style' => 'short' ]
 );
 // => 'in 2 yr'
 ```

@@ -12,8 +12,9 @@ class EachDayOfIntervalTest extends TestCase {
 	public function returns_array_of_days_within_interval(): void {
 		$start = '2014-10-06';
 		$end = '2014-10-10';
+		$interval = [$start, $end];
 
-		$result = DateFns::eachDayOfInterval(['start' => $start, 'end' => $end]);
+		$result = DateFns::eachDayOfInterval(...$interval);
 
 		$this->assertCount(5, $result);
 		$this->assertEquals('2014-10-06 00:00:00', $result[0]->format('Y-m-d H:i:s'));
@@ -27,8 +28,9 @@ class EachDayOfIntervalTest extends TestCase {
 	public function handles_step_option(): void {
 		$start = '2014-10-06';
 		$end = '2014-10-10';
+		$interval = [$start, $end];
 
-		$result = DateFns::eachDayOfInterval(['start' => $start, 'end' => $end], ['step' => 2]);
+		$result = DateFns::eachDayOfInterval(...$interval, options: ['step' => 2]);
 
 		$this->assertCount(3, $result);
 		$this->assertEquals('2014-10-06 00:00:00', $result[0]->format('Y-m-d H:i:s'));

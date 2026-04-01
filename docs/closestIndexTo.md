@@ -14,6 +14,8 @@ Return an index of the closest date from the given dates comparing to the given 
 - `int|null`
 
 ## Examples
+PHP does not support repeated named arguments for variadic parameters, so this example uses positional variadic arguments.
+
 Which date is closer to 6 September 2015?
 ```php
 <?php

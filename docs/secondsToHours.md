@@ -20,7 +20,7 @@ Convert 7200 seconds into hours
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::secondsToHours(7200);
+$result = DateFns::secondsToHours(seconds: 7200);
 // => 2
 ```
 
@@ -31,6 +31,6 @@ It uses floor rounding:
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::secondsToHours(7199);
+$result = DateFns::secondsToHours(seconds: 7199);
 // => 1
 ```

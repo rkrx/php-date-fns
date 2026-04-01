@@ -20,6 +20,6 @@ The end of a decade for 12 May 1984 00:00:00:
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::endOfDecade(new DateTimeImmutable('1984-05-12 00:00:00'));
+$result = DateFns::endOfDecade(date: new DateTimeImmutable('1984-05-12 00:00:00'));
 // => Dec 31 1989 23:59:59.999
 ```

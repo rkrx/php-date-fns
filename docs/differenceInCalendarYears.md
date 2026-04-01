@@ -22,8 +22,8 @@ use DateFns\DateFns;
 use DateTimeImmutable;
 
 $result = DateFns::differenceInCalendarYears(
-  new DateTimeImmutable('2015-02-11 00:00:00'),
-  new DateTimeImmutable('2013-12-31 00:00:00')
+    laterDate: new DateTimeImmutable('2015-02-11 00:00:00'),
+    earlierDate: new DateTimeImmutable('2013-12-31 00:00:00')
 );
 // => 2
 ```

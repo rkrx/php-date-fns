@@ -20,6 +20,6 @@ Convert 2 years into months
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::yearsToMonths(2);
+$result = DateFns::yearsToMonths(years: 2);
 // => 24
 ```

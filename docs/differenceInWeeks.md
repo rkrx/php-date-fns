@@ -22,7 +22,7 @@ How many full weeks are between 5 July 2014 and 20 July 2014?
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::differenceInWeeks(new DateTimeImmutable('2014-07-20 00:00:00'), new DateTimeImmutable('2014-07-05 00:00:00'));
+$result = DateFns::differenceInWeeks(laterDate: new DateTimeImmutable('2014-07-20 00:00:00'), earlierDate: new DateTimeImmutable('2014-07-05 00:00:00'));
 // => 2
 ```
 
@@ -34,8 +34,8 @@ use DateFns\DateFns;
 use DateTimeImmutable;
 
 $result = DateFns::differenceInWeeks(
-  new DateTimeImmutable('2020-06-01 00:00:00'),
-  new DateTimeImmutable('2020-03-06 00:00:00')
+    laterDate: new DateTimeImmutable('2020-06-01 00:00:00'),
+    earlierDate: new DateTimeImmutable('2020-03-06 00:00:00')
 );
 // => 8
 ```

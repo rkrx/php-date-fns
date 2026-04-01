@@ -22,8 +22,8 @@ use DateFns\DateFns;
 use DateTimeImmutable;
 
 $result = DateFns::differenceInCalendarISOWeeks(
-  new DateTimeImmutable('2014-07-21 00:00:00'),
-  new DateTimeImmutable('2014-07-06 00:00:00'),
+    laterDate: new DateTimeImmutable('2014-07-21 00:00:00'),
+    earlierDate: new DateTimeImmutable('2014-07-06 00:00:00')
 );
 // => 3
 ```

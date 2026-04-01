@@ -21,6 +21,6 @@ Set Sunday to 1 September 2014:
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::setISODay(new DateTimeImmutable('2014-09-01 00:00:00'), 7);
+$result = DateFns::setISODay(date: new DateTimeImmutable('2014-09-01 00:00:00'), isoDay: 7);
 // => Sun Sep 07 2014 00:00:00
 ```

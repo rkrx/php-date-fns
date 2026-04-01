@@ -22,7 +22,7 @@ Represent 4 October 2019 in middle-endian format:
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::intlFormat(new DateTimeImmutable('2019-10-04 12:30:13'));
+$result = DateFns::intlFormat(date: new DateTimeImmutable('2019-10-04 12:30:13'));
 // => 10/4/2019
 ```
 
@@ -33,9 +33,12 @@ Represent 4 October 2019 in Korean. Convert the date with locale's options.
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::intlFormat(new DateTimeImmutable('2019-10-04 12:30:13'), [
-    'locale' => 'ko-KR',
-]);
+$result = DateFns::intlFormat(
+    date: new DateTimeImmutable('2019-10-04 12:30:13'),
+    formatOptions: [
+        'locale' => 'ko-KR',
+        ]
+);
 // => 2019. 10. 4.
 ```
 
@@ -62,13 +65,17 @@ Represent 4 October 2019 in German. Convert the date with format's options and l
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::intlFormat(new DateTimeImmutable('2019-10-04 12:30:13'), [
-    'weekday' => 'long',
-    'year' => 'numeric',
-    'month' => 'long',
-    'day' => 'numeric',
-], [
-    'locale' => 'de-DE',
-]);
+$result = DateFns::intlFormat(
+    date: new DateTimeImmutable('2019-10-04 12:30:13'),
+    formatOptions: [
+        'weekday' => 'long',
+        'year' => 'numeric',
+        'month' => 'long',
+        'day' => 'numeric',
+        ],
+    localeOptions: [
+        'locale' => 'de-DE',
+        ]
+);
 // => Freitag, 4. Oktober 2019
 ```

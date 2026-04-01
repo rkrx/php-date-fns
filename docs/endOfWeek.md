@@ -21,7 +21,7 @@ The end of a week for 2 September 2014 11:55:00:
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::endOfWeek(new DateTimeImmutable('2014-09-02 11:55:00'));
+$result = DateFns::endOfWeek(date: new DateTimeImmutable('2014-09-02 11:55:00'));
 // => Sat Sep 06 2014 23:59:59.999
 ```
 
@@ -32,7 +32,10 @@ If the week starts on Monday, the end of the week for 2 September 2014 11:55:00:
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::endOfWeek(new DateTimeImmutable('2014-09-02 11:55:00'), [
-    'weekStartsOn' => 1 ]);
+$result = DateFns::endOfWeek(
+    date: new DateTimeImmutable('2014-09-02 11:55:00'),
+    options: [
+        'weekStartsOn' => 1 ]
+);
 // => Sun Sep 07 2014 23:59:59.999
 ```

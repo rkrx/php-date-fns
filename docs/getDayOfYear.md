@@ -20,6 +20,6 @@ Which day of the year is 2 July 2014?
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::getDayOfYear(new DateTimeImmutable('2014-07-02 00:00:00'));
+$result = DateFns::getDayOfYear(date: new DateTimeImmutable('2014-07-02 00:00:00'));
 // => 183
 ```

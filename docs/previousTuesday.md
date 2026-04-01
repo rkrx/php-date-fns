@@ -20,6 +20,6 @@ When is the previous Tuesday before Jun, 18, 2021?
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::previousTuesday(new DateTimeImmutable('2021-06-18 00:00:00'));
+$result = DateFns::previousTuesday(date: new DateTimeImmutable('2021-06-18 00:00:00'));
 // => Tue June 15 2021 00:00:00
 ```

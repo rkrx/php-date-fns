@@ -20,7 +20,7 @@ Convert 6 months to quarters:
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::monthsToQuarters(6);
+$result = DateFns::monthsToQuarters(months: 6);
 // => 2
 ```
 
@@ -31,6 +31,6 @@ It uses floor rounding:
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::monthsToQuarters(7);
+$result = DateFns::monthsToQuarters(months: 7);
 // => 2
 ```

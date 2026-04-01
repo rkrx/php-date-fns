@@ -22,8 +22,8 @@ use DateFns\DateFns;
 use DateTimeImmutable;
 
 $result = DateFns::differenceInISOWeekYears(
-  new DateTimeImmutable('2012-01-01 00:00:00'),
-  new DateTimeImmutable('2010-01-01 00:00:00')
+    laterDate: new DateTimeImmutable('2012-01-01 00:00:00'),
+    earlierDate: new DateTimeImmutable('2010-01-01 00:00:00')
 );
 // => 1
 ```

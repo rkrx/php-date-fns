@@ -7,7 +7,8 @@ Return the array of months within the specified time interval.
 
 
 ## Parameters
-- `interval` (array)
+- `start` (DateTimeInterface|string|int)
+- `end` (DateTimeInterface|string|int)
 - `options` (array)
 
 ## Returns
@@ -21,10 +22,10 @@ Each month between 6 February 2014 and 10 August 2014:
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::eachMonthOfInterval([
-    'start' => new DateTimeImmutable('2014-02-06 00:00:00'),
-    'end' => new DateTimeImmutable('2014-08-10 00:00:00')
-]);
+$result = DateFns::eachMonthOfInterval(
+    start: new DateTimeImmutable('2014-02-06 00:00:00'),
+    end: new DateTimeImmutable('2014-08-10 00:00:00')
+);
 // => [
 //   Sat Feb 01 2014 00:00:00,
 //   Sat Mar 01 2014 00:00:00,

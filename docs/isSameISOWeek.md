@@ -21,7 +21,7 @@ Are 1 September 2014 and 7 September 2014 in the same ISO week?
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::isSameISOWeek(new DateTimeImmutable('2014-09-01 00:00:00'), new DateTimeImmutable('2014-09-07 00:00:00'));
+$result = DateFns::isSameISOWeek(dateLeft: new DateTimeImmutable('2014-09-01 00:00:00'), dateRight: new DateTimeImmutable('2014-09-07 00:00:00'));
 // => true
 ```
 
@@ -32,6 +32,6 @@ Are 1 September 2014 and 1 September 2015 in the same ISO week?
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::isSameISOWeek(new DateTimeImmutable('2014-09-01 00:00:00'), new DateTimeImmutable('2015-09-01 00:00:00'));
+$result = DateFns::isSameISOWeek(dateLeft: new DateTimeImmutable('2014-09-01 00:00:00'), dateRight: new DateTimeImmutable('2015-09-01 00:00:00'));
 // => false
 ```

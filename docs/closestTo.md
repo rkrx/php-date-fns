@@ -14,6 +14,8 @@ Return a date from the given dates closest to the given date.
 - `DateTimeInterface|null`
 
 ## Examples
+PHP does not support repeated named arguments for variadic parameters, so this example uses positional variadic arguments.
+
 Which date is closer to 6 September 2015: 1 January 2000 or 1 January 2030?
 ```php
 <?php

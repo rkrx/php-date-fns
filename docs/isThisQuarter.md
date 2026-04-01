@@ -20,6 +20,6 @@ If today is 25 September 2014, is 2 July 2014 in this quarter?
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::isThisQuarter(new DateTimeImmutable('2014-07-02 00:00:00'));
+$result = DateFns::isThisQuarter(date: new DateTimeImmutable('2014-07-02 00:00:00'));
 // => true
 ```

@@ -20,6 +20,6 @@ The start of an ISO week for 2 September 2014 11:55:00:
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::startOfISOWeek(new DateTimeImmutable('2014-09-02 11:55:00'));
+$result = DateFns::startOfISOWeek(date: new DateTimeImmutable('2014-09-02 11:55:00'));
 // => Mon Sep 01 2014 00:00:00
 ```

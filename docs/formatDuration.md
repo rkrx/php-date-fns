@@ -21,15 +21,17 @@ Format full duration
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-DateFns::formatDuration([
-    'years' => 2,
-    'months' => 9,
-    'weeks' => 1,
-    'days' => 7,
-    'hours' => 5,
-    'minutes' => 9,
-    'seconds' => 30
-]);
+DateFns::formatDuration(
+    duration: [
+        'years' => 2,
+        'months' => 9,
+        'weeks' => 1,
+        'days' => 7,
+        'hours' => 5,
+        'minutes' => 9,
+        'seconds' => 30
+        ]
+);
 // => '2 years 9 months 1 week 7 days 5 hours 9 minutes 30 seconds'
 ```
 
@@ -40,9 +42,11 @@ Format partial duration
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-DateFns::formatDuration([
-    'months' => 9,
-    'days' => 2 ]);
+DateFns::formatDuration(
+    duration: [
+        'months' => 9,
+        'days' => 2 ]
+);
 // => '9 months 2 days'
 ```
 
@@ -54,19 +58,19 @@ use DateFns\DateFns;
 use DateTimeImmutable;
 
 DateFns::formatDuration(
-  [
-    'years' => 2,
-    'months' => 9,
-    'weeks' => 1,
-    'days' => 7,
-    'hours' => 5,
-    'minutes' => 9,
-    'seconds' => 30
-  ],
-  [
-    'format' => [
-    'months',
-    'weeks'] ]
+    duration: [
+        'years' => 2,
+        'months' => 9,
+        'weeks' => 1,
+        'days' => 7,
+        'hours' => 5,
+        'minutes' => 9,
+        'seconds' => 30
+        ],
+    options: [
+        'format' => [
+        'months',
+        'weeks'] ]
 ) === '9 months 1 week';
 ```
 
@@ -77,14 +81,19 @@ Customize the zeros presence
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-DateFns::formatDuration([
-    'years' => 0,
-    'months' => 9 ]);
+DateFns::formatDuration(
+    duration: [
+        'years' => 0,
+        'months' => 9 ]
+);
 // => '9 months'
-DateFns::formatDuration([
-    'years' => 0,
-    'months' => 9 ], [
-    'zero' => true ]);
+DateFns::formatDuration(
+    duration: [
+        'years' => 0,
+        'months' => 9 ],
+    options: [
+        'zero' => true ]
+);
 // => '0 years 9 months'
 ```
 
@@ -95,11 +104,14 @@ Customize the delimiter
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-DateFns::formatDuration([
-    'years' => 2,
-    'months' => 9,
-    'weeks' => 3 ], [
-    'delimiter' => ',
-    ' ]);
+DateFns::formatDuration(
+    duration: [
+        'years' => 2,
+        'months' => 9,
+        'weeks' => 3 ],
+    options: [
+        'delimiter' => ',
+        ' ]
+);
 // => '2 years, 9 months, 3 weeks'
 ```

@@ -2,12 +2,13 @@
 
 # intervalToDuration
 
-Convert interval to duration
+Convert two dates into a duration array.
 
 
 
 ## Parameters
-- `interval` (array)
+- `start` (DateTimeInterface|string|int)
+- `end` (DateTimeInterface|string|int)
 
 ## Returns
 - `array`
@@ -20,15 +21,15 @@ Get the duration between January 15, 1929 and April 4, 1968.
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-DateFns::intervalToDuration([
-    'start' => new DateTimeImmutable('1929-01-15 12:00:00'),
-    'end' => new DateTimeImmutable('1968-04-04 19:05:00')
-]);;
+$result = DateFns::intervalToDuration(
+    start: new DateTimeImmutable('1929-01-15 12:00:00'),
+    end: new DateTimeImmutable('1968-04-04 19:05:00')
+);
 // => [
-    'years' => 39,
-    'months' => 2,
-    'days' => 20,
-    'hours' => 7,
-    'minutes' => 5,
-    'seconds' => 0 ]
+//   'years' => 39,
+//   'months' => 2,
+//   'days' => 20,
+//   'hours' => 7,
+//   'minutes' => 5,
+// ]
 ```

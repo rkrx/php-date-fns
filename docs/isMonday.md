@@ -20,6 +20,6 @@ Is 22 September 2014 Monday?
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::isMonday(new DateTimeImmutable('2014-09-22 00:00:00'));
+$result = DateFns::isMonday(date: new DateTimeImmutable('2014-09-22 00:00:00'));
 // => true
 ```

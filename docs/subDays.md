@@ -21,6 +21,6 @@ Subtract 10 days from 1 September 2014:
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::subDays(new DateTimeImmutable('2014-09-01 00:00:00'), 10);
+$result = DateFns::subDays(date: new DateTimeImmutable('2014-09-01 00:00:00'), amount: 10);
 // => Fri Aug 22 2014 00:00:00
 ```

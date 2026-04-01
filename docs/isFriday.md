@@ -20,6 +20,6 @@ Is 26 September 2014 Friday?
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::isFriday(new DateTimeImmutable('2014-09-26 00:00:00'));
+$result = DateFns::isFriday(date: new DateTimeImmutable('2014-09-26 00:00:00'));
 // => true
 ```

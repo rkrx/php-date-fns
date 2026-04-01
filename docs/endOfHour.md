@@ -20,6 +20,6 @@ The end of an hour for 2 September 2014 11:55:00:
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::endOfHour(new DateTimeImmutable('2014-09-02 11:55:00'));
+$result = DateFns::endOfHour(date: new DateTimeImmutable('2014-09-02 11:55:00'));
 // => Tue Sep 02 2014 11:59:59.999
 ```

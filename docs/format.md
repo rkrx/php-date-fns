@@ -21,23 +21,26 @@ Represent 11 February 2014 in middle-endian format:
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::format(new DateTimeImmutable('2014-02-11 00:00:00'),
-    'MM/dd/yyyy');
+$result = DateFns::format(
+    date: new DateTimeImmutable('2014-02-11 00:00:00'),
+    formatStr: 'MM/dd/yyyy'
+);
 // => '02/11/2014'
 ```
 
-Represent 2 July 2014 in Esperanto:
+Represent 2 July 2014 in ISO-like format:
 ```php
 <?php
 
 use DateFns\DateFns;
 use DateTimeImmutable;
+use DateTimeZone;
 
-$eoLocale = 'eo';
-$result = DateFns::format(new DateTimeImmutable('2014-07-02 00:00:00'), "do 'de' MMMM yyyy", [
-    'locale' => $eoLocale
-]);
-// => '2-a de julio 2014'
+$result = DateFns::format(
+    date: new DateTimeImmutable('2014-07-02 00:00:00', new DateTimeZone('UTC')),
+    formatStr: 'yyyy-MM-dd'
+);
+// => '2014-07-02'
 ```
 
 Escape string by single quote characters:
@@ -47,6 +50,6 @@ Escape string by single quote characters:
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::format(new DateTimeImmutable('2014-07-02 15:00:00'), "h 'o''clock'");
+$result = DateFns::format(date: new DateTimeImmutable('2014-07-02 15:00:00'), formatStr: "h 'o''clock'");
 // => "3 o'clock"
 ```

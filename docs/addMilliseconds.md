@@ -21,6 +21,6 @@ Add 750 milliseconds to 10 July 2014 12:45:30.000:
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::addMilliseconds(new DateTimeImmutable('2014-07-10 12:45:30'), 750);
+$result = DateFns::addMilliseconds(date: new DateTimeImmutable('2014-07-10 12:45:30'), amount: 750);
 // => Thu Jul 10 2014 12:45:30.750
 ```

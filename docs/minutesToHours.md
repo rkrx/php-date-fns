@@ -20,7 +20,7 @@ Convert 140 minutes to hours:
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::minutesToHours(120);
+$result = DateFns::minutesToHours(minutes: 120);
 // => 2
 ```
 
@@ -31,6 +31,6 @@ It uses floor rounding:
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::minutesToHours(179);
+$result = DateFns::minutesToHours(minutes: 179);
 // => 2
 ```

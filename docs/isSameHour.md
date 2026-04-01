@@ -21,7 +21,7 @@ Are 4 September 2014 06:00:00 and 4 September 06:30:00 in the same hour?
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::isSameHour(new DateTimeImmutable('2014-09-04 06:00:00'), new DateTimeImmutable('2014-09-04 06:30:00'));
+$result = DateFns::isSameHour(dateLeft: new DateTimeImmutable('2014-09-04 06:00:00'), dateRight: new DateTimeImmutable('2014-09-04 06:30:00'));
 // => true
 ```
 
@@ -32,6 +32,6 @@ Are 4 September 2014 06:00:00 and 5 September 06:00:00 in the same hour?
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::isSameHour(new DateTimeImmutable('2014-09-04 06:00:00'), new DateTimeImmutable('2014-09-05 06:00:00'));
+$result = DateFns::isSameHour(dateLeft: new DateTimeImmutable('2014-09-04 06:00:00'), dateRight: new DateTimeImmutable('2014-09-05 06:00:00'));
 // => false
 ```

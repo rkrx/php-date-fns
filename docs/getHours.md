@@ -20,6 +20,6 @@ Get the hours of 29 February 2012 11:45:00:
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::getHours(new DateTimeImmutable('2012-02-29 11:45:00'));
+$result = DateFns::getHours(date: new DateTimeImmutable('2012-02-29 11:45:00'));
 // => 11
 ```

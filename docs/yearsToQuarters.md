@@ -20,6 +20,6 @@ Convert 2 years to quarters
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::yearsToQuarters(2);
+$result = DateFns::yearsToQuarters(years: 2);
 // => 8
 ```

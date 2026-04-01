@@ -20,6 +20,6 @@ If today is 6 October 2014, is 2 July 2014 in the past?
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::isPast(new DateTimeImmutable('2014-07-02 00:00:00'));
+$result = DateFns::isPast(date: new DateTimeImmutable('2014-07-02 00:00:00'));
 // => true
 ```

@@ -21,6 +21,6 @@ Add 5 ISO week-numbering years to 2 July 2010:
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::addISOWeekYears(new DateTimeImmutable('2010-07-02 00:00:00'), 5);
+$result = DateFns::addISOWeekYears(date: new DateTimeImmutable('2010-07-02 00:00:00'), amount: 5);
 // => Fri Jun 26 2015 00:00:00
 ```

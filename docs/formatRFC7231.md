@@ -20,6 +20,6 @@ Represent 18 September 2019 in RFC 7231 format:
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::formatRFC7231(new DateTimeImmutable('2019-09-18 19:00:52'));
+$result = DateFns::formatRFC7231(date: new DateTimeImmutable('2019-09-18 19:00:52'));
 // => 'Wed, 18 Sep 2019 19:00:52 GMT'
 ```

@@ -20,7 +20,7 @@ Clone the date:
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::toDate(new DateTimeImmutable('2014-02-11 11:30:30'));
+$result = DateFns::toDate(argument: new DateTimeImmutable('2014-02-11 11:30:30'));
 // => Tue Feb 11 2014 11:30:30
 ```
 
@@ -31,6 +31,6 @@ Convert the timestamp to date:
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::toDate(1392098430000);
+$result = DateFns::toDate(argument: 1392098430000);
 // => Tue Feb 11 2014 11:30:30
 ```

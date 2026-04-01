@@ -20,6 +20,6 @@ When is the previous Thursday before Jun, 18, 2021?
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::previousThursday(new DateTimeImmutable('2021-06-18 00:00:00'));
+$result = DateFns::previousThursday(date: new DateTimeImmutable('2021-06-18 00:00:00'));
 // => Thu June 17 2021 00:00:00
 ```

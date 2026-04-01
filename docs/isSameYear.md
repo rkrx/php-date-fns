@@ -21,6 +21,6 @@ Are 2 September 2014 and 25 September 2014 in the same year?
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::isSameYear(new DateTimeImmutable('2014-09-02 00:00:00'), new DateTimeImmutable('2014-09-25 00:00:00'));
+$result = DateFns::isSameYear(dateLeft: new DateTimeImmutable('2014-09-02 00:00:00'), dateRight: new DateTimeImmutable('2014-09-25 00:00:00'));
 // => true
 ```

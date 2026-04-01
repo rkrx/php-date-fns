@@ -22,7 +22,7 @@ use DateFns\DateFns;
 use DateTimeImmutable;
 
 $result = DateFns::formatDistanceToNow(
-  new DateTimeImmutable('2014-07-02 00:00:00')
+    date: new DateTimeImmutable('2014-07-02 00:00:00')
 );
 // => '6 months'
 ```
@@ -35,9 +35,9 @@ use DateFns\DateFns;
 use DateTimeImmutable;
 
 $result = DateFns::formatDistanceToNow(
-  new DateTimeImmutable('2015-01-01 00:00:15'),
-  [
-    'includeSeconds' => true]
+    date: new DateTimeImmutable('2015-01-01 00:00:15'),
+    options: [
+        'includeSeconds' => true]
 );
 // => 'less than 20 seconds'
 ```
@@ -50,9 +50,9 @@ use DateFns\DateFns;
 use DateTimeImmutable;
 
 $result = DateFns::formatDistanceToNow(
-  new DateTimeImmutable('2016-01-01 00:00:00'),
-  [
-    'addSuffix' => true]
+    date: new DateTimeImmutable('2016-01-01 00:00:00'),
+    options: [
+        'addSuffix' => true]
 );
 // => 'in about 1 year'
 ```
@@ -66,9 +66,9 @@ use DateTimeImmutable;
 
 $eoLocale = require('date-fns/locale/eo');
 $result = DateFns::formatDistanceToNow(
-  new DateTimeImmutable('2016-08-01 00:00:00'),
-  [
-    'locale' => eoLocale]
+    date: new DateTimeImmutable('2016-08-01 00:00:00'),
+    options: [
+        'locale' => eoLocale]
 );
 // => 'pli ol 1 jaro'
 ```

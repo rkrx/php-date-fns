@@ -20,6 +20,6 @@ Convert 2 quarters to months
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::quartersToMonths(2);
+$result = DateFns::quartersToMonths(quarters: 2);
 // => 6
 ```

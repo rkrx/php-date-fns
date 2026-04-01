@@ -22,7 +22,7 @@ What is the distance between 2 July 2014 and 1 January 2015?
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::formatDistance(new DateTimeImmutable('2014-07-02 00:00:00'), new DateTimeImmutable('2015-01-01 00:00:00'));
+$result = DateFns::formatDistance(date: new DateTimeImmutable('2014-07-02 00:00:00'), baseDate: new DateTimeImmutable('2015-01-01 00:00:00'));
 // => '6 months'
 ```
 
@@ -34,10 +34,10 @@ use DateFns\DateFns;
 use DateTimeImmutable;
 
 $result = DateFns::formatDistance(
-  new DateTimeImmutable('2015-01-01 00:00:15'),
-  new DateTimeImmutable('2015-01-01 00:00:00'),
-  [
-    'includeSeconds' => true ]
+    date: new DateTimeImmutable('2015-01-01 00:00:15'),
+    baseDate: new DateTimeImmutable('2015-01-01 00:00:00'),
+    options: [
+        'includeSeconds' => true ]
 );
 // => 'less than 20 seconds'
 ```
@@ -49,9 +49,13 @@ What is the distance from 1 January 2016 to 1 January 2015, with a suffix?
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::formatDistance(new DateTimeImmutable('2015-01-01 00:00:00'), new DateTimeImmutable('2016-01-01 00:00:00'), [
-    'addSuffix' => true
-]);
+$result = DateFns::formatDistance(
+    date: new DateTimeImmutable('2015-01-01 00:00:00'),
+    baseDate: new DateTimeImmutable('2016-01-01 00:00:00'),
+    options: [
+        'addSuffix' => true
+        ]
+);
 // => 'about 1 year ago'
 ```
 
@@ -63,8 +67,12 @@ use DateFns\DateFns;
 use DateTimeImmutable;
 
 $eoLocale = 'eo';
-$result = DateFns::formatDistance(new DateTimeImmutable('2016-08-01 00:00:00'), new DateTimeImmutable('2015-01-01 00:00:00'), [
-    'locale' => $eoLocale
-]);
+$result = DateFns::formatDistance(
+    date: new DateTimeImmutable('2016-08-01 00:00:00'),
+    baseDate: new DateTimeImmutable('2015-01-01 00:00:00'),
+    options: [
+        'locale' => $eoLocale
+        ]
+);
 // => 'pli ol 1 jaro'
 ```

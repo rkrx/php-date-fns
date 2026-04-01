@@ -22,8 +22,8 @@ use DateFns\DateFns;
 use DateTimeImmutable;
 
 $result = DateFns::differenceInDays(
-  new DateTimeImmutable('2012-07-02 00:00:00'),
-  new DateTimeImmutable('2011-07-02 23:00:00')
+    laterDate: new DateTimeImmutable('2012-07-02 00:00:00'),
+    earlierDate: new DateTimeImmutable('2011-07-02 23:00:00')
 );
 // => 365
 ```
@@ -36,8 +36,8 @@ use DateFns\DateFns;
 use DateTimeImmutable;
 
 $result = DateFns::differenceInDays(
-  new DateTimeImmutable('2011-07-03 00:01:00'),
-  new DateTimeImmutable('2011-07-02 23:59:00')
+    laterDate: new DateTimeImmutable('2011-07-03 00:01:00'),
+    earlierDate: new DateTimeImmutable('2011-07-02 23:59:00')
 );
 // => 0
 ```
@@ -50,8 +50,8 @@ use DateFns\DateFns;
 use DateTimeImmutable;
 
 $result = DateFns::differenceInDays(
-  new DateTimeImmutable('2020-06-01 00:00:00'),
-  new DateTimeImmutable('2020-03-01 00:00:00')
+    laterDate: new DateTimeImmutable('2020-06-01 00:00:00'),
+    earlierDate: new DateTimeImmutable('2020-03-01 00:00:00')
 );
 // => 92
 ```

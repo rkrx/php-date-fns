@@ -23,8 +23,8 @@ use DateFns\DateFns;
 use DateTimeImmutable;
 
 $result = DateFns::differenceInCalendarWeeks(
-  new DateTimeImmutable('2014-07-20 00:00:00'),
-  new DateTimeImmutable('2014-07-05 00:00:00')
+    laterDate: new DateTimeImmutable('2014-07-20 00:00:00'),
+    earlierDate: new DateTimeImmutable('2014-07-05 00:00:00')
 );
 // => 3
 ```
@@ -37,10 +37,10 @@ use DateFns\DateFns;
 use DateTimeImmutable;
 
 $result = DateFns::differenceInCalendarWeeks(
-  new DateTimeImmutable('2014-07-20 00:00:00'),
-  new DateTimeImmutable('2014-07-05 00:00:00'),
-  [
-    'weekStartsOn' => 1 ]
+    laterDate: new DateTimeImmutable('2014-07-20 00:00:00'),
+    earlierDate: new DateTimeImmutable('2014-07-05 00:00:00'),
+    options: [
+        'weekStartsOn' => 1 ]
 );
 // => 2
 ```

@@ -20,7 +20,7 @@ Convert 8 quarters to years
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::quartersToYears(8);
+$result = DateFns::quartersToYears(quarters: 8);
 // => 2
 ```
 
@@ -31,6 +31,6 @@ It uses floor rounding:
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::quartersToYears(11);
+$result = DateFns::quartersToYears(quarters: 11);
 // => 2
 ```

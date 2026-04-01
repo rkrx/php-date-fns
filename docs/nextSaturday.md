@@ -20,6 +20,6 @@ When is the next Saturday after Mar, 22, 2020?
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::nextSaturday(new DateTimeImmutable('2020-03-22 00:00:00'));
+$result = DateFns::nextSaturday(date: new DateTimeImmutable('2020-03-22 00:00:00'));
 // => Sat Mar 28 2020 00:00:00
 ```

@@ -20,6 +20,6 @@ The last day of a quarter for 2 September 2014 11:55:00:
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::lastDayOfQuarter(new DateTimeImmutable('2014-09-02 11:55:00'));
+$result = DateFns::lastDayOfQuarter(date: new DateTimeImmutable('2014-09-02 11:55:00'));
 // => Tue Sep 30 2014 00:00:00
 ```

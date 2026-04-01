@@ -12,23 +12,22 @@ trait IntervalHelpers {
 	/**
 	 * Is the given time interval overlapping with another time interval?
 	 *
-	 * @param array{start: DateTimeInterface|string|int, end: DateTimeInterface|string|int} $intervalLeft
-	 * @param array{start: DateTimeInterface|string|int, end: DateTimeInterface|string|int} $intervalRight
+	 * @param DateTimeInterface|string|int $leftStart
+	 * @param DateTimeInterface|string|int $leftEnd
+	 * @param DateTimeInterface|string|int $rightStart
+	 * @param DateTimeInterface|string|int $rightEnd
 	 * @param array{inclusive?: bool} $options
 	 * @return bool
 	 */
-	public static function areIntervalsOverlapping(array $intervalLeft, array $intervalRight, array $options = []): bool {
-		$leftStart = self::ensureDateTime($intervalLeft['start']);
-		$leftEnd = self::ensureDateTime($intervalLeft['end']);
-		$rightStart = self::ensureDateTime($intervalRight['start']);
-		$rightEnd = self::ensureDateTime($intervalRight['end']);
-
-		if($leftStart > $leftEnd) {
-			throw new RuntimeException('The start of an interval cannot be after its end');
-		}
-		if($rightStart > $rightEnd) {
-			throw new RuntimeException('The start of an interval cannot be after its end');
-		}
+	public static function areIntervalsOverlapping(
+		DateTimeInterface|string|int $leftStart,
+		DateTimeInterface|string|int $leftEnd,
+		DateTimeInterface|string|int $rightStart,
+		DateTimeInterface|string|int $rightEnd,
+		array $options = []
+	): bool {
+		[$leftStart, $leftEnd] = self::resolveInterval($leftStart, $leftEnd);
+		[$rightStart, $rightEnd] = self::resolveInterval($rightStart, $rightEnd);
 
 		$inclusive = $options['inclusive'] ?? false;
 
@@ -43,23 +42,23 @@ trait IntervalHelpers {
 	 * Return a date bounded by the start and the end of the given interval.
 	 *
 	 * @param DateTimeInterface|string|int $date
-	 * @param array{start: DateTimeInterface|string|int, end: DateTimeInterface|string|int} $interval
+	 * @param DateTimeInterface|string|int $min
+	 * @param DateTimeInterface|string|int $max
 	 * @return DateTimeImmutable
 	 */
-	public static function clamp($date, array $interval): DateTimeImmutable {
+	public static function clamp(
+		DateTimeInterface|string|int $date,
+		DateTimeInterface|string|int $min,
+		DateTimeInterface|string|int $max
+	): DateTimeImmutable {
 		$date = self::ensureDateTime($date);
-		$start = self::ensureDateTime($interval['start']);
-		$end = self::ensureDateTime($interval['end']);
+		[$min, $max] = self::resolveInterval($min, $max);
 
-		if($start > $end) {
-			throw new RuntimeException('The start of an interval cannot be after its end');
+		if($date < $min) {
+			return $min;
 		}
-
-		if($date < $start) {
-			return $start;
-		}
-		if($date > $end) {
-			return $end;
+		if($date > $max) {
+			return $max;
 		}
 
 		return $date;
@@ -68,21 +67,21 @@ trait IntervalHelpers {
 	/**
 	 * Return the array of dates within the specified time interval.
 	 *
-	 * @param array{start: DateTimeInterface|string|int, end: DateTimeInterface|string|int} $interval
+	 * @param DateTimeInterface|string|int $start
+	 * @param DateTimeInterface|string|int $end
 	 * @param array{step?: int} $options
 	 * @return DateTimeImmutable[]
 	 */
-	public static function eachDayOfInterval(array $interval, array $options = []): array {
-		$start = self::ensureDateTime($interval['start']);
-		$end = self::ensureDateTime($interval['end']);
+	public static function eachDayOfInterval(
+		DateTimeInterface|string|int $start,
+		DateTimeInterface|string|int $end,
+		array $options = []
+	): array {
+		[$start, $end] = self::resolveInterval($start, $end);
 		$step = $options['step'] ?? 1;
 
 		if($step < 1) {
 			throw new RuntimeException('Step must be a positive integer');
-		}
-
-		if($start > $end) {
-			throw new RuntimeException('The start of an interval cannot be after its end');
 		}
 
 		$dates = [];
@@ -100,21 +99,21 @@ trait IntervalHelpers {
 	/**
 	 * Return the array of hours within the specified time interval.
 	 *
-	 * @param array{start: DateTimeInterface|string|int, end: DateTimeInterface|string|int} $interval
+	 * @param DateTimeInterface|string|int $start
+	 * @param DateTimeInterface|string|int $end
 	 * @param array{step?: int} $options
 	 * @return DateTimeImmutable[]
 	 */
-	public static function eachHourOfInterval(array $interval, array $options = []): array {
-		$start = self::ensureDateTime($interval['start']);
-		$end = self::ensureDateTime($interval['end']);
+	public static function eachHourOfInterval(
+		DateTimeInterface|string|int $start,
+		DateTimeInterface|string|int $end,
+		array $options = []
+	): array {
+		[$start, $end] = self::resolveInterval($start, $end);
 		$step = $options['step'] ?? 1;
 
 		if($step < 1) {
 			throw new RuntimeException('Step must be a positive integer');
-		}
-
-		if($start > $end) {
-			throw new RuntimeException('The start of an interval cannot be after its end');
 		}
 
 		$dates = [];
@@ -133,21 +132,21 @@ trait IntervalHelpers {
 	/**
 	 * Return the array of minutes within the specified time interval.
 	 *
-	 * @param array{start: DateTimeInterface|string|int, end: DateTimeInterface|string|int} $interval
+	 * @param DateTimeInterface|string|int $start
+	 * @param DateTimeInterface|string|int $end
 	 * @param array{step?: int} $options
 	 * @return DateTimeImmutable[]
 	 */
-	public static function eachMinuteOfInterval(array $interval, array $options = []): array {
-		$start = self::ensureDateTime($interval['start']);
-		$end = self::ensureDateTime($interval['end']);
+	public static function eachMinuteOfInterval(
+		DateTimeInterface|string|int $start,
+		DateTimeInterface|string|int $end,
+		array $options = []
+	): array {
+		[$start, $end] = self::resolveInterval($start, $end);
 		$step = $options['step'] ?? 1;
 
 		if($step < 1) {
 			throw new RuntimeException('Step must be a positive integer');
-		}
-
-		if($start > $end) {
-			throw new RuntimeException('The start of an interval cannot be after its end');
 		}
 
 		$dates = [];
@@ -166,21 +165,21 @@ trait IntervalHelpers {
 	/**
 	 * Return the array of months within the specified time interval.
 	 *
-	 * @param array{start: DateTimeInterface|string|int, end: DateTimeInterface|string|int} $interval
+	 * @param DateTimeInterface|string|int $start
+	 * @param DateTimeInterface|string|int $end
 	 * @param array{step?: int} $options
 	 * @return DateTimeImmutable[]
 	 */
-	public static function eachMonthOfInterval(array $interval, array $options = []): array {
-		$start = self::ensureDateTime($interval['start']);
-		$end = self::ensureDateTime($interval['end']);
+	public static function eachMonthOfInterval(
+		DateTimeInterface|string|int $start,
+		DateTimeInterface|string|int $end,
+		array $options = []
+	): array {
+		[$start, $end] = self::resolveInterval($start, $end);
 		$step = $options['step'] ?? 1;
 
 		if($step < 1) {
 			throw new RuntimeException('Step must be a positive integer');
-		}
-
-		if($start > $end) {
-			throw new RuntimeException('The start of an interval cannot be after its end');
 		}
 
 		$dates = [];
@@ -198,21 +197,21 @@ trait IntervalHelpers {
 	/**
 	 * Return the array of quarters within the specified time interval.
 	 *
-	 * @param array{start: DateTimeInterface|string|int, end: DateTimeInterface|string|int} $interval
+	 * @param DateTimeInterface|string|int $start
+	 * @param DateTimeInterface|string|int $end
 	 * @param array{step?: int} $options
 	 * @return DateTimeImmutable[]
 	 */
-	public static function eachQuarterOfInterval(array $interval, array $options = []): array {
-		$start = self::ensureDateTime($interval['start']);
-		$end = self::ensureDateTime($interval['end']);
+	public static function eachQuarterOfInterval(
+		DateTimeInterface|string|int $start,
+		DateTimeInterface|string|int $end,
+		array $options = []
+	): array {
+		[$start, $end] = self::resolveInterval($start, $end);
 		$step = $options['step'] ?? 1;
 
 		if($step < 1) {
 			throw new RuntimeException('Step must be a positive integer');
-		}
-
-		if($start > $end) {
-			throw new RuntimeException('The start of an interval cannot be after its end');
 		}
 
 		$dates = [];
@@ -240,21 +239,21 @@ trait IntervalHelpers {
 	/**
 	 * Return the array of years within the specified time interval.
 	 *
-	 * @param array{start: DateTimeInterface|string|int, end: DateTimeInterface|string|int} $interval
+	 * @param DateTimeInterface|string|int $start
+	 * @param DateTimeInterface|string|int $end
 	 * @param array{step?: int} $options
 	 * @return DateTimeImmutable[]
 	 */
-	public static function eachYearOfInterval(array $interval, array $options = []): array {
-		$start = self::ensureDateTime($interval['start']);
-		$end = self::ensureDateTime($interval['end']);
+	public static function eachYearOfInterval(
+		DateTimeInterface|string|int $start,
+		DateTimeInterface|string|int $end,
+		array $options = []
+	): array {
+		[$start, $end] = self::resolveInterval($start, $end);
 		$step = $options['step'] ?? 1;
 
 		if($step < 1) {
 			throw new RuntimeException('Step must be a positive integer');
-		}
-
-		if($start > $end) {
-			throw new RuntimeException('The start of an interval cannot be after its end');
 		}
 
 		$dates = [];
@@ -272,22 +271,22 @@ trait IntervalHelpers {
 	/**
 	 * Return the array of weeks within the specified time interval.
 	 *
-	 * @param array{start: DateTimeInterface|string|int, end: DateTimeInterface|string|int} $interval
+	 * @param DateTimeInterface|string|int $start
+	 * @param DateTimeInterface|string|int $end
 	 * @param array{step?: int, weekStartsOn?: int} $options
 	 * @return DateTimeImmutable[]
 	 */
-	public static function eachWeekOfInterval(array $interval, array $options = []): array {
-		$start = self::ensureDateTime($interval['start']);
-		$end = self::ensureDateTime($interval['end']);
+	public static function eachWeekOfInterval(
+		DateTimeInterface|string|int $start,
+		DateTimeInterface|string|int $end,
+		array $options = []
+	): array {
+		[$start, $end] = self::resolveInterval($start, $end);
 		$step = $options['step'] ?? 1;
 		$weekStartsOn = $options['weekStartsOn'] ?? 0;
 
 		if($step < 1) {
 			throw new RuntimeException('Step must be a positive integer');
-		}
-
-		if($start > $end) {
-			throw new RuntimeException('The start of an interval cannot be after its end');
 		}
 
 		$dates = [];
@@ -313,16 +312,15 @@ trait IntervalHelpers {
 	/**
 	 * Return the array of weekends within the specified time interval.
 	 *
-	 * @param array{start: DateTimeInterface|string|int, end: DateTimeInterface|string|int} $interval
+	 * @param DateTimeInterface|string|int $start
+	 * @param DateTimeInterface|string|int $end
 	 * @return DateTimeImmutable[]
 	 */
-	public static function eachWeekendOfInterval(array $interval): array {
-		$start = self::ensureDateTime($interval['start']);
-		$end = self::ensureDateTime($interval['end']);
-
-		if($start > $end) {
-			throw new RuntimeException('The start of an interval cannot be after its end');
-		}
+	public static function eachWeekendOfInterval(
+		DateTimeInterface|string|int $start,
+		DateTimeInterface|string|int $end
+	): array {
+		[$start, $end] = self::resolveInterval($start, $end);
 
 		$dates = [];
 		$current = $start->setTime(0, 0, 0);
@@ -342,26 +340,27 @@ trait IntervalHelpers {
 	/**
 	 * Get the number of days that overlap in two time intervals.
 	 *
-	 * @param array{start: DateTimeInterface|string|int, end: DateTimeInterface|string|int} $intervalLeft
-	 * @param array{start: DateTimeInterface|string|int, end: DateTimeInterface|string|int} $intervalRight
+	 * @param DateTimeInterface|string|int $leftStart
+	 * @param DateTimeInterface|string|int $leftEnd
+	 * @param DateTimeInterface|string|int $rightStart
+	 * @param DateTimeInterface|string|int $rightEnd
 	 * @return int
 	 */
-	public static function getOverlappingDaysInIntervals(array $intervalLeft, array $intervalRight): int {
-		$leftStart = self::tryEnsureDateTime($intervalLeft['start']);
-		$leftEnd = self::tryEnsureDateTime($intervalLeft['end']);
-		$rightStart = self::tryEnsureDateTime($intervalRight['start']);
-		$rightEnd = self::tryEnsureDateTime($intervalRight['end']);
+	public static function getOverlappingDaysInIntervals(
+		DateTimeInterface|string|int $leftStart,
+		DateTimeInterface|string|int $leftEnd,
+		DateTimeInterface|string|int $rightStart,
+		DateTimeInterface|string|int $rightEnd
+	): int {
+		$leftInterval = self::tryResolveInterval($leftStart, $leftEnd, true);
+		$rightInterval = self::tryResolveInterval($rightStart, $rightEnd, true);
 
-		if($leftStart === null || $leftEnd === null || $rightStart === null || $rightEnd === null) {
+		if($leftInterval === null || $rightInterval === null) {
 			return 0;
 		}
 
-		if($leftStart > $leftEnd) {
-			[$leftStart, $leftEnd] = [$leftEnd, $leftStart];
-		}
-		if($rightStart > $rightEnd) {
-			[$rightStart, $rightEnd] = [$rightEnd, $rightStart];
-		}
+		[$leftStart, $leftEnd] = $leftInterval;
+		[$rightStart, $rightEnd] = $rightInterval;
 
 		$leftStartTs = (float) $leftStart->format('U.u');
 		$leftEndTs = (float) $leftEnd->format('U.u');
@@ -392,7 +391,11 @@ trait IntervalHelpers {
 	 * @param array{assertPositive?: bool} $options
 	 * @return array{start: DateTimeImmutable, end: DateTimeImmutable}
 	 */
-	public static function interval($start, $end, array $options = []): array {
+	public static function interval(
+		DateTimeInterface|string|int $start,
+		DateTimeInterface|string|int $end,
+		array $options = []
+	): array {
 		$startDate = self::tryEnsureDateTime($start);
 		$endDate = self::tryEnsureDateTime($end);
 
@@ -414,28 +417,71 @@ trait IntervalHelpers {
 	 * Is the given date within the interval? (Including start and end.)
 	 *
 	 * @param DateTimeInterface|string|int $date
-	 * @param array{start: DateTimeInterface|string|int, end: DateTimeInterface|string|int} $interval
+	 * @param DateTimeInterface|string|int $start
+	 * @param DateTimeInterface|string|int $end
 	 * @return bool
 	 */
-	public static function isWithinInterval($date, array $interval): bool {
+	public static function isWithinInterval(
+		DateTimeInterface|string|int $date,
+		DateTimeInterface|string|int $start,
+		DateTimeInterface|string|int $end
+	): bool {
 		$target = self::tryEnsureDateTime($date);
-		$start = self::tryEnsureDateTime($interval['start']);
-		$end = self::tryEnsureDateTime($interval['end']);
+		$interval = self::tryResolveInterval($start, $end, true);
 
-		if($target === null || $start === null || $end === null) {
+		if($target === null || $interval === null) {
 			return false;
 		}
 
+		[$start, $end] = $interval;
+
 		$startTs = (float) $start->format('U.u');
 		$endTs = (float) $end->format('U.u');
-
-		if($startTs > $endTs) {
-			[$startTs, $endTs] = [$endTs, $startTs];
-		}
-
 		$time = (float) $target->format('U.u');
 
 		return $time >= $startTs && $time <= $endTs;
+	}
+
+	/**
+	 * @return array{0: DateTimeImmutable, 1: DateTimeImmutable}
+	 */
+	private static function resolveInterval(
+		DateTimeInterface|string|int $start,
+		DateTimeInterface|string|int $end,
+		bool $normalize = false
+	): array {
+		$start = self::ensureDateTime($start);
+		$end = self::ensureDateTime($end);
+
+		if($start > $end) {
+			if($normalize) {
+				return [$end, $start];
+			}
+
+			throw new RuntimeException('The start of an interval cannot be after its end');
+		}
+
+		return [$start, $end];
+	}
+
+	/**
+	 * @param DateTimeInterface|int|float|string|null $start
+	 * @param DateTimeInterface|int|float|string|null $end
+	 * @return array{0: DateTimeImmutable, 1: DateTimeImmutable}|null
+	 */
+	private static function tryResolveInterval($start, $end, bool $normalize = false): ?array {
+		$start = self::tryEnsureDateTime($start);
+		$end = self::tryEnsureDateTime($end);
+
+		if($start === null || $end === null) {
+			return null;
+		}
+
+		if($start > $end && $normalize) {
+			return [$end, $start];
+		}
+
+		return [$start, $end];
 	}
 
 	private static function tryEnsureDateTime(DateTimeInterface|int|float|string|null $value): ?DateTimeImmutable {

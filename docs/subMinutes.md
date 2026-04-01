@@ -21,6 +21,6 @@ Subtract 30 minutes from 10 July 2014 12:00:00:
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::subMinutes(new DateTimeImmutable('2014-07-10 12:00:00'), 30);
+$result = DateFns::subMinutes(date: new DateTimeImmutable('2014-07-10 12:00:00'), amount: 30);
 // => Thu Jul 10 2014 11:30:00
 ```

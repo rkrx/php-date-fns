@@ -20,7 +20,7 @@ For a valid date:
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::isDate(new DateTimeImmutable());
+$result = DateFns::isDate(value: new DateTimeImmutable());
 // => true
 ```
 
@@ -31,7 +31,7 @@ For an invalid date:
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::isDate(new DateTimeImmutable(NaN));
+$result = DateFns::isDate(value: new DateTimeImmutable(NaN));
 // => true
 ```
 
@@ -42,7 +42,7 @@ For some value:
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::isDate('2014-02-31');
+$result = DateFns::isDate(value: '2014-02-31');
 // => false
 ```
 
@@ -53,6 +53,6 @@ For an object:
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::isDate([]);
+$result = DateFns::isDate(value: []);
 // => false
 ```

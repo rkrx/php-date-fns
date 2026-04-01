@@ -20,6 +20,6 @@ Convert 2 weeks into days
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::weeksToDays(2);
+$result = DateFns::weeksToDays(weeks: 2);
 // => 14
 ```

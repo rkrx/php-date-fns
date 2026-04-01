@@ -21,6 +21,6 @@ Add 2 hours to 10 July 2014 23:00:00:
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::addHours(new DateTimeImmutable('2014-07-10 23:00:00'), 2);
+$result = DateFns::addHours(date: new DateTimeImmutable('2014-07-10 23:00:00'), amount: 2);
 // => Fri Jul 11 2014 01:00:00
 ```

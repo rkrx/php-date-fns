@@ -20,6 +20,6 @@ Convert 2 years into days
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::yearsToDays(2);
+$result = DateFns::yearsToDays(years: 2);
 // => 730
 ```

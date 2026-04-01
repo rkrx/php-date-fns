@@ -21,6 +21,6 @@ How many full years are between 31 December 2013 and 11 February 2015?
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::differenceInYears(new DateTimeImmutable('2015-02-11 00:00:00'), new DateTimeImmutable('2013-12-31 00:00:00'));
+$result = DateFns::differenceInYears(laterDate: new DateTimeImmutable('2015-02-11 00:00:00'), earlierDate: new DateTimeImmutable('2013-12-31 00:00:00'));
 // => 1
 ```

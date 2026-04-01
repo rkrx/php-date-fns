@@ -20,6 +20,6 @@ Which decade belongs 27 November 1942?
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::getDecade(new DateTimeImmutable('1942-11-27 00:00:00'));
+$result = DateFns::getDecade(date: new DateTimeImmutable('1942-11-27 00:00:00'));
 // => 1940
 ```

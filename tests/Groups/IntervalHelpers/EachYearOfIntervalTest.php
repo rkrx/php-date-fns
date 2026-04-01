@@ -10,8 +10,9 @@ class EachYearOfIntervalTest extends TestCase {
 	public function returns_array_of_years_within_interval(): void {
 		$start = '2014-02-06';
 		$end = '2017-08-10';
+		$interval = [$start, $end];
 
-		$result = DateFns::eachYearOfInterval(['start' => $start, 'end' => $end]);
+		$result = DateFns::eachYearOfInterval(...$interval);
 
 		$this->assertCount(4, $result);
 		$this->assertEquals('2014-01-01 00:00:00', $result[0]->format('Y-m-d H:i:s'));

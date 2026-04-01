@@ -20,6 +20,6 @@ How many days are in February 2000?
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::getDaysInMonth(new DateTimeImmutable('2000-02-01 00:00:00'));
+$result = DateFns::getDaysInMonth(date: new DateTimeImmutable('2000-02-01 00:00:00'));
 // => 29
 ```

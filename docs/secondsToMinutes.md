@@ -20,7 +20,7 @@ Convert 120 seconds into minutes
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::secondsToMinutes(120);
+$result = DateFns::secondsToMinutes(seconds: 120);
 // => 2
 ```
 
@@ -31,6 +31,6 @@ It uses floor rounding:
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::secondsToMinutes(119);
+$result = DateFns::secondsToMinutes(seconds: 119);
 // => 1
 ```

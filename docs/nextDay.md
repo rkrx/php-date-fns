@@ -21,7 +21,7 @@ When is the next Monday after Mar, 20, 2020?
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::nextDay(new DateTimeImmutable('2020-03-20 00:00:00'), 1);
+$result = DateFns::nextDay(date: new DateTimeImmutable('2020-03-20 00:00:00'), day: 1);
 // => Mon Mar 23 2020 00:00:00
 ```
 
@@ -32,6 +32,6 @@ When is the next Tuesday after Mar, 21, 2020?
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::nextDay(new DateTimeImmutable('2020-03-21 00:00:00'), 2);
+$result = DateFns::nextDay(date: new DateTimeImmutable('2020-03-21 00:00:00'), day: 2);
 // => Tue Mar 24 2020 00:00:00
 ```

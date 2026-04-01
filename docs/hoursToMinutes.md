@@ -20,6 +20,6 @@ Convert 2 hours to minutes:
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::hoursToMinutes(2);
+$result = DateFns::hoursToMinutes(hours: 2);
 // => 120
 ```

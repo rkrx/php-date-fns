@@ -68,7 +68,7 @@ echo DateFns::format($shifted, 'yyyy-MM-dd HH:mm:ss');
   Format the date according to the RFC 7231 standard (https://tools.ietf.org/html/rfc7231#section-7.1.1.1).
 - [`DateFns::getDefaultOptions(): array`](docs/getDefaultOptions.md)<br />
   Get default options.
-- [`DateFns::intervalToDuration(array $interval): array`](docs/intervalToDuration.md)<br />
+- [`DateFns::intervalToDuration(DateTimeInterface|string|int $start, DateTimeInterface|string|int $end): array`](docs/intervalToDuration.md)<br />
   Convert interval to duration
 - [`DateFns::intlFormat($date, array $formatOptions = [], array $localeOptions = []): string`](docs/intlFormat.md)<br />
   Format the date with Intl.DateTimeFormat (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat). 
@@ -160,31 +160,31 @@ echo DateFns::format($shifted, 'yyyy-MM-dd HH:mm:ss');
 
 ### Interval Helpers
 
-- [`DateFns::areIntervalsOverlapping(array $intervalLeft, array $intervalRight, array $options = []): bool`](docs/areIntervalsOverlapping.md)<br />
+- [`DateFns::areIntervalsOverlapping(DateTimeInterface|string|int $leftStart, DateTimeInterface|string|int $leftEnd, DateTimeInterface|string|int $rightStart, DateTimeInterface|string|int $rightEnd, array $options = []): bool`](docs/areIntervalsOverlapping.md)<br />
   Is the given time interval overlapping with another time interval?
-- [`DateFns::clamp($date, array $interval): DateTimeImmutable`](docs/clamp.md)<br />
+- [`DateFns::clamp(DateTimeInterface|string|int $date, DateTimeInterface|string|int $min, DateTimeInterface|string|int $max): DateTimeImmutable`](docs/clamp.md)<br />
   Return a date bounded by the start and the end of the given interval.
-- [`DateFns::eachDayOfInterval(array $interval, array $options = []): array`](docs/eachDayOfInterval.md)<br />
+- [`DateFns::eachDayOfInterval(DateTimeInterface|string|int $start, DateTimeInterface|string|int $end, array $options = []): array`](docs/eachDayOfInterval.md)<br />
   Return the array of dates within the specified time interval.
-- [`DateFns::eachHourOfInterval(array $interval, array $options = []): array`](docs/eachHourOfInterval.md)<br />
+- [`DateFns::eachHourOfInterval(DateTimeInterface|string|int $start, DateTimeInterface|string|int $end, array $options = []): array`](docs/eachHourOfInterval.md)<br />
   Return the array of hours within the specified time interval.
-- [`DateFns::eachMinuteOfInterval(array $interval, array $options = []): array`](docs/eachMinuteOfInterval.md)<br />
+- [`DateFns::eachMinuteOfInterval(DateTimeInterface|string|int $start, DateTimeInterface|string|int $end, array $options = []): array`](docs/eachMinuteOfInterval.md)<br />
   Return the array of minutes within the specified time interval.
-- [`DateFns::eachMonthOfInterval(array $interval, array $options = []): array`](docs/eachMonthOfInterval.md)<br />
+- [`DateFns::eachMonthOfInterval(DateTimeInterface|string|int $start, DateTimeInterface|string|int $end, array $options = []): array`](docs/eachMonthOfInterval.md)<br />
   Return the array of months within the specified time interval.
-- [`DateFns::eachQuarterOfInterval(array $interval, array $options = []): array`](docs/eachQuarterOfInterval.md)<br />
+- [`DateFns::eachQuarterOfInterval(DateTimeInterface|string|int $start, DateTimeInterface|string|int $end, array $options = []): array`](docs/eachQuarterOfInterval.md)<br />
   Return the array of quarters within the specified time interval.
-- [`DateFns::eachWeekendOfInterval(array $interval): array`](docs/eachWeekendOfInterval.md)<br />
+- [`DateFns::eachWeekendOfInterval(DateTimeInterface|string|int $start, DateTimeInterface|string|int $end): array`](docs/eachWeekendOfInterval.md)<br />
   List all the Saturdays and Sundays in the given date interval.
-- [`DateFns::eachWeekOfInterval(array $interval, array $options = []): array`](docs/eachWeekOfInterval.md)<br />
+- [`DateFns::eachWeekOfInterval(DateTimeInterface|string|int $start, DateTimeInterface|string|int $end, array $options = []): array`](docs/eachWeekOfInterval.md)<br />
   Return the array of weeks within the specified time interval.
-- [`DateFns::eachYearOfInterval(array $interval, array $options = []): array`](docs/eachYearOfInterval.md)<br />
+- [`DateFns::eachYearOfInterval(DateTimeInterface|string|int $start, DateTimeInterface|string|int $end, array $options = []): array`](docs/eachYearOfInterval.md)<br />
   Return the array of yearly timestamps within the specified time interval.
-- [`DateFns::getOverlappingDaysInIntervals(array $intervalLeft, array $intervalRight): int`](docs/getOverlappingDaysInIntervals.md)<br />
+- [`DateFns::getOverlappingDaysInIntervals(DateTimeInterface|string|int $leftStart, DateTimeInterface|string|int $leftEnd, DateTimeInterface|string|int $rightStart, DateTimeInterface|string|int $rightEnd): int`](docs/getOverlappingDaysInIntervals.md)<br />
   Get the number of days that overlap in two time intervals
 - [`DateFns::interval($start, $end, array $options = []): array`](docs/interval.md)<br />
   Creates an interval object and validates its values.
-- [`DateFns::isWithinInterval($date, array $interval): bool`](docs/isWithinInterval.md)<br />
+- [`DateFns::isWithinInterval(DateTimeInterface|string|int $date, DateTimeInterface|string|int $start, DateTimeInterface|string|int $end): bool`](docs/isWithinInterval.md)<br />
   Is the given date within the interval?
 
 

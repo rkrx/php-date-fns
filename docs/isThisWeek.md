@@ -21,7 +21,7 @@ If today is 25 September 2014, is 21 September 2014 in this week?
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::isThisWeek(new DateTimeImmutable('2014-09-21 00:00:00'));
+$result = DateFns::isThisWeek(date: new DateTimeImmutable('2014-09-21 00:00:00'));
 // => true
 ```
 
@@ -32,7 +32,10 @@ If today is 25 September 2014 and week starts with Monday is 21 September 2014 i
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::isThisWeek(new DateTimeImmutable('2014-09-21 00:00:00'), [
-    'weekStartsOn' => 1 ]);
+$result = DateFns::isThisWeek(
+    date: new DateTimeImmutable('2014-09-21 00:00:00'),
+    options: [
+        'weekStartsOn' => 1 ]
+);
 // => false
 ```

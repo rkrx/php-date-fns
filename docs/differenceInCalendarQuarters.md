@@ -22,8 +22,8 @@ use DateFns\DateFns;
 use DateTimeImmutable;
 
 $result = DateFns::differenceInCalendarQuarters(
-  new DateTimeImmutable('2014-07-02 00:00:00'),
-  new DateTimeImmutable('2013-12-31 00:00:00')
+    laterDate: new DateTimeImmutable('2014-07-02 00:00:00'),
+    earlierDate: new DateTimeImmutable('2013-12-31 00:00:00')
 );
 // => 3
 ```

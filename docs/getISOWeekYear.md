@@ -20,6 +20,6 @@ Which ISO-week numbering year is 2 January 2005?
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::getISOWeekYear(new DateTimeImmutable('2005-01-02 00:00:00'));
+$result = DateFns::getISOWeekYear(date: new DateTimeImmutable('2005-01-02 00:00:00'));
 // => 2004
 ```

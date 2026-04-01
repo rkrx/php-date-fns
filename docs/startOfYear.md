@@ -20,6 +20,6 @@ The start of a year for 2 September 2014 11:55:00:
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::startOfYear(new DateTimeImmutable('2014-09-02 11:55:00'));
+$result = DateFns::startOfYear(date: new DateTimeImmutable('2014-09-02 11:55:00'));
 // => Wed Jan 01 2014 00:00:00
 ```

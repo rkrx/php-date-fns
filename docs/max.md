@@ -13,6 +13,8 @@ Return the latest of the given dates.
 - `DateTimeImmutable`
 
 ## Examples
+PHP does not support repeated named arguments for variadic parameters, so this example uses positional variadic arguments.
+
 Which of these dates is the latest?
 ```php
 <?php

@@ -20,6 +20,6 @@ If now is 25 September 2014 18:30:15.500, is 25 September 2014 18:30:00 in this 
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::isThisMinute(new DateTimeImmutable('2014-09-25 18:30:00'));
+$result = DateFns::isThisMinute(date: new DateTimeImmutable('2014-09-25 18:30:00'));
 // => true
 ```

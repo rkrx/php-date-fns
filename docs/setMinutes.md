@@ -21,6 +21,6 @@ Set 45 minutes to 1 September 2014 11:30:40:
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::setMinutes(new DateTimeImmutable('2014-09-01 11:30:40'), 45);
+$result = DateFns::setMinutes(date: new DateTimeImmutable('2014-09-01 11:30:40'), minutes: 45);
 // => Mon Sep 01 2014 11:45:40
 ```

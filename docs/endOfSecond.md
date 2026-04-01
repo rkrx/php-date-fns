@@ -20,6 +20,6 @@ The end of a second for 1 December 2014 22:15:45.400:
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::endOfSecond(new DateTimeImmutable('2014-12-01 22:15:45'));
+$result = DateFns::endOfSecond(date: new DateTimeImmutable('2014-12-01 22:15:45'));
 // => Mon Dec 01 2014 22:15:45.999
 ```

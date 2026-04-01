@@ -21,6 +21,6 @@ Set 4 hours to 1 September 2014 11:30:00:
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::setHours(new DateTimeImmutable('2014-09-01 11:30:00'), 4);
+$result = DateFns::setHours(date: new DateTimeImmutable('2014-09-01 11:30:00'), hours: 4);
 // => Mon Sep 01 2014 04:30:00
 ```

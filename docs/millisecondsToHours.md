@@ -20,7 +20,7 @@ Convert 7200000 milliseconds to hours:
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::millisecondsToHours(7200000);
+$result = DateFns::millisecondsToHours(milliseconds: 7200000);
 // => 2
 ```
 
@@ -31,6 +31,6 @@ It uses floor rounding:
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::millisecondsToHours(7199999);
+$result = DateFns::millisecondsToHours(milliseconds: 7199999);
 // => 1
 ```

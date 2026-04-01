@@ -22,8 +22,8 @@ use DateFns\DateFns;
 use DateTimeImmutable;
 
 $result = DateFns::isEqual(
-  new DateTimeImmutable('2014-07-02 06:30:45'),
-  new DateTimeImmutable('2014-07-02 06:30:45')
+    dateLeft: new DateTimeImmutable('2014-07-02 06:30:45'),
+    dateRight: new DateTimeImmutable('2014-07-02 06:30:45')
 );
 // => false
 ```

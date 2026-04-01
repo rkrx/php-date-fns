@@ -2,67 +2,75 @@
 
 # isWithinInterval
 
-Is the given date within the interval? (Including start and end.)
+Check whether a date is within the given start and end boundary, including both ends.
 
 
 
 ## Parameters
 - `date` (DateTimeInterface|string|int)
-- `interval` (array)
+- `start` (DateTimeInterface|string|int)
+- `end` (DateTimeInterface|string|int)
 
 ## Returns
 - `bool`
 
 ## Examples
-For the date within the interval:
+For a date inside the interval:
 ```php
 <?php
 
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-DateFns::isWithinInterval(new DateTimeImmutable('2014-01-03 00:00:00'), [
-    'start' => new DateTimeImmutable('2014-01-01 00:00:00'),
-    'end' => new DateTimeImmutable('2014-01-07 00:00:00')
-]);
+DateFns::isWithinInterval(
+    date: new DateTimeImmutable('2014-01-03 00:00:00'),
+    start: new DateTimeImmutable('2014-01-01 00:00:00'),
+    end: new DateTimeImmutable('2014-01-07 00:00:00')
+);
 // => true
 ```
 
-For the date outside of the interval:
+For a date outside the interval:
 ```php
 <?php
 
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-DateFns::isWithinInterval(new DateTimeImmutable('2014-01-10 00:00:00'), [
-    'start' => new DateTimeImmutable('2014-01-01 00:00:00'),
-    'end' => new DateTimeImmutable('2014-01-07 00:00:00')
-]);
+DateFns::isWithinInterval(
+    date: new DateTimeImmutable('2014-01-10 00:00:00'),
+    start: new DateTimeImmutable('2014-01-01 00:00:00'),
+    end: new DateTimeImmutable('2014-01-07 00:00:00')
+);
 // => false
 ```
 
-For date equal to the interval start:
+When the date is equal to the start:
 ```php
 <?php
 
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-DateFns::isWithinInterval(date, [
-     start,
-    'end' => date ]);
+DateFns::isWithinInterval(
+    date: new DateTimeImmutable('2014-01-01 00:00:00'),
+    start: new DateTimeImmutable('2014-01-01 00:00:00'),
+    end: new DateTimeImmutable('2014-01-07 00:00:00')
+);
 // => true
 ```
 
-For date equal to the interval end:
+When the date is equal to the end:
 ```php
 <?php
 
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-DateFns::isWithinInterval(date, [
-    'start' => date, end ]);
+DateFns::isWithinInterval(
+    date: new DateTimeImmutable('2014-01-07 00:00:00'),
+    start: new DateTimeImmutable('2014-01-01 00:00:00'),
+    end: new DateTimeImmutable('2014-01-07 00:00:00')
+);
 // => true
 ```

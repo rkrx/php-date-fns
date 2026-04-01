@@ -872,12 +872,16 @@ trait CommonHelpers {
 	/**
 	 * Convert interval to duration
 	 *
-	 * @param array{start: DateTimeInterface|string|int, end: DateTimeInterface|string|int} $interval
+	 * @param DateTimeInterface|string|int $start
+	 * @param DateTimeInterface|string|int $end
 	 * @return array{years?: int, months?: int, days?: int, hours?: int, minutes?: int, seconds?: int}
 	 */
-	public static function intervalToDuration(array $interval): array {
-		$start = self::ensureDateTime($interval['start']);
-		$end = self::ensureDateTime($interval['end']);
+	public static function intervalToDuration(
+		DateTimeInterface|string|int $start,
+		DateTimeInterface|string|int $end
+	): array {
+		$start = self::ensureDateTime($start);
+		$end = self::ensureDateTime($end);
 
 		$diff = $start->diff($end);
 

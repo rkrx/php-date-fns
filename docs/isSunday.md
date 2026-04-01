@@ -20,6 +20,6 @@ Is 21 September 2014 Sunday?
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::isSunday(new DateTimeImmutable('2014-09-21 00:00:00'));
+$result = DateFns::isSunday(date: new DateTimeImmutable('2014-09-21 00:00:00'));
 // => true
 ```

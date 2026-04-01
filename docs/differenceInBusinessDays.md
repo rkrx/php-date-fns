@@ -22,32 +22,32 @@ use DateFns\DateFns;
 use DateTimeImmutable;
 
 $result = DateFns::differenceInBusinessDays(
-  new DateTimeImmutable('2014-07-20 00:00:00'),
-  new DateTimeImmutable('2014-01-10 00:00:00')
+    laterDate: new DateTimeImmutable('2014-07-20 00:00:00'),
+    earlierDate: new DateTimeImmutable('2014-01-10 00:00:00')
 );
 // => 136
 
 // How many business days are between
 // 30 November 2021 and 1 November 2021?
 $result = DateFns::differenceInBusinessDays(
-  new DateTimeImmutable('2021-11-30 00:00:00'),
-  new DateTimeImmutable('2021-11-01 00:00:00')
+    laterDate: new DateTimeImmutable('2021-11-30 00:00:00'),
+    earlierDate: new DateTimeImmutable('2021-11-01 00:00:00')
 );
 // => 21
 
 // How many business days are between
 // 1 November 2021 and 1 December 2021?
 $result = DateFns::differenceInBusinessDays(
-  new DateTimeImmutable('2021-11-01 00:00:00'),
-  new DateTimeImmutable('2021-12-01 00:00:00')
+    laterDate: new DateTimeImmutable('2021-11-01 00:00:00'),
+    earlierDate: new DateTimeImmutable('2021-12-01 00:00:00')
 );
 // => -22
 
 // How many business days are between
 // 1 November 2021 and 1 November 2021 ?
 $result = DateFns::differenceInBusinessDays(
-  new DateTimeImmutable('2021-11-01 00:00:00'),
-  new DateTimeImmutable('2021-11-01 00:00:00')
+    laterDate: new DateTimeImmutable('2021-11-01 00:00:00'),
+    earlierDate: new DateTimeImmutable('2021-11-01 00:00:00')
 );
 // => 0
 ```

@@ -21,6 +21,6 @@ Set ISO week-numbering year 2007 to 29 December 2008:
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::setISOWeekYear(new DateTimeImmutable('2008-12-29 00:00:00'), 2007);
+$result = DateFns::setISOWeekYear(date: new DateTimeImmutable('2008-12-29 00:00:00'), isoYear: 2007);
 // => Mon Jan 01 2007 00:00:00
 ```

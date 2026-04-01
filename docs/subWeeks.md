@@ -21,6 +21,6 @@ Subtract 4 weeks from 1 September 2014:
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::subWeeks(new DateTimeImmutable('2014-09-01 00:00:00'), 4);
+$result = DateFns::subWeeks(date: new DateTimeImmutable('2014-09-01 00:00:00'), amount: 4);
 // => Mon Aug 04 2014 00:00:00
 ```

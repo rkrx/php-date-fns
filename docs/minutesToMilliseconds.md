@@ -20,6 +20,6 @@ Convert 2 minutes to milliseconds
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::minutesToMilliseconds(2);
+$result = DateFns::minutesToMilliseconds(minutes: 2);
 // => 120000
 ```

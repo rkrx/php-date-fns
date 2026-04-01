@@ -20,6 +20,6 @@ If today is 6 October 2014, is 7 October 14:00:00 tomorrow?
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::isTomorrow(new DateTimeImmutable('2014-10-07 14:00:00'));
+$result = DateFns::isTomorrow(date: new DateTimeImmutable('2014-10-07 14:00:00'));
 // => true
 ```

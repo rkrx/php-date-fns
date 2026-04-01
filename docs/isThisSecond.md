@@ -20,6 +20,6 @@ If now is 25 September 2014 18:30:15.500, is 25 September 2014 18:30:15.000 in t
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::isThisSecond(new DateTimeImmutable('2014-09-25 18:30:15'));
+$result = DateFns::isThisSecond(date: new DateTimeImmutable('2014-09-25 18:30:15'));
 // => true
 ```

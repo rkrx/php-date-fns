@@ -10,8 +10,9 @@ class EachMonthOfIntervalTest extends TestCase {
 	public function returns_array_of_months_within_interval(): void {
 		$start = '2014-02-06';
 		$end = '2014-08-10';
+		$interval = [$start, $end];
 
-		$result = DateFns::eachMonthOfInterval(['start' => $start, 'end' => $end]);
+		$result = DateFns::eachMonthOfInterval(...$interval);
 
 		$this->assertCount(7, $result);
 		$this->assertEquals('2014-02-01 00:00:00', $result[0]->format('Y-m-d H:i:s'));
@@ -23,8 +24,9 @@ class EachMonthOfIntervalTest extends TestCase {
 	public function handles_step_option(): void {
 		$start = '2014-02-06';
 		$end = '2014-08-10';
+		$interval = [$start, $end];
 
-		$result = DateFns::eachMonthOfInterval(['start' => $start, 'end' => $end], ['step' => 2]);
+		$result = DateFns::eachMonthOfInterval(...$interval, options: ['step' => 2]);
 
 		$this->assertCount(4, $result);
 		$this->assertEquals('2014-02-01 00:00:00', $result[0]->format('Y-m-d H:i:s'));

@@ -20,6 +20,6 @@ If now is 25 September 2014 18:30:15.500, is 25 September 2014 18:00:00 in this 
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::isThisHour(new DateTimeImmutable('2014-09-25 18:00:00'));
+$result = DateFns::isThisHour(date: new DateTimeImmutable('2014-09-25 18:00:00'));
 // => true
 ```

@@ -22,8 +22,8 @@ use DateFns\DateFns;
 use DateTimeImmutable;
 
 $result = DateFns::differenceInCalendarMonths(
-  new DateTimeImmutable('2014-09-01 00:00:00'),
-  new DateTimeImmutable('2014-01-31 00:00:00')
+    laterDate: new DateTimeImmutable('2014-09-01 00:00:00'),
+    earlierDate: new DateTimeImmutable('2014-01-31 00:00:00')
 );
 // => 8
 ```

@@ -21,6 +21,6 @@ Set the 2nd day of the year to 2 July 2014:
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::setDayOfYear(new DateTimeImmutable('2014-07-02 00:00:00'), 2);
+$result = DateFns::setDayOfYear(date: new DateTimeImmutable('2014-07-02 00:00:00'), dayOfYear: 2);
 // => Thu Jan 02 2014 00:00:00
 ```

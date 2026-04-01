@@ -21,7 +21,7 @@ Represent 18 September 2019 in ISO 8601 format (local time zone is UTC):
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::formatISO(new DateTimeImmutable('2019-09-18 19:00:52'));
+$result = DateFns::formatISO(date: new DateTimeImmutable('2019-09-18 19:00:52'));
 // => '2019-09-18T19:00:52Z'
 ```
 
@@ -32,8 +32,11 @@ Represent 18 September 2019 in ISO 8601, short format (local time zone is UTC):
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::formatISO(new DateTimeImmutable('2019-09-18 19:00:52'), [
-    'format' => 'basic' ]);
+$result = DateFns::formatISO(
+    date: new DateTimeImmutable('2019-09-18 19:00:52'),
+    options: [
+        'format' => 'basic' ]
+);
 // => '20190918T190052'
 ```
 
@@ -44,8 +47,11 @@ Represent 18 September 2019 in ISO 8601 format, date only:
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::formatISO(new DateTimeImmutable('2019-09-18 19:00:52'), [
-    'representation' => 'date' ]);
+$result = DateFns::formatISO(
+    date: new DateTimeImmutable('2019-09-18 19:00:52'),
+    options: [
+        'representation' => 'date' ]
+);
 // => '2019-09-18'
 ```
 
@@ -56,7 +62,10 @@ Represent 18 September 2019 in ISO 8601 format, time only (local time zone is UT
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::formatISO(new DateTimeImmutable('2019-09-18 19:00:52'), [
-    'representation' => 'time' ]);
+$result = DateFns::formatISO(
+    date: new DateTimeImmutable('2019-09-18 19:00:52'),
+    options: [
+        'representation' => 'time' ]
+);
 // => '19:00:52Z'
 ```

@@ -20,7 +20,7 @@ Lists all Saturdays and Sundays in the year
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::eachWeekendOfYear(new DateTimeImmutable('2020-02-01 00:00:00'));
+$result = DateFns::eachWeekendOfYear(date: new DateTimeImmutable('2020-02-01 00:00:00'));
 // => [
 //   Sat Jan 03 2020 00:00:00,
 //   Sun Jan 04 2020 00:00:00,

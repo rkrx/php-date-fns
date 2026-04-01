@@ -23,8 +23,8 @@ use DateFns\DateFns;
 use DateTimeImmutable;
 
 $result = DateFns::differenceInSeconds(
-  new DateTimeImmutable('2014-07-02 12:30:20'),
-  new DateTimeImmutable('2014-07-02 12:30:07')
+    laterDate: new DateTimeImmutable('2014-07-02 12:30:20'),
+    earlierDate: new DateTimeImmutable('2014-07-02 12:30:07')
 );
 // => 12
 ```

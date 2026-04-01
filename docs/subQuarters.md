@@ -21,6 +21,6 @@ Subtract 3 quarters from 1 September 2014:
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::subQuarters(new DateTimeImmutable('2014-09-01 00:00:00'), 3);
+$result = DateFns::subQuarters(date: new DateTimeImmutable('2014-09-01 00:00:00'), amount: 3);
 // => Sun Dec 01 2013 00:00:00
 ```

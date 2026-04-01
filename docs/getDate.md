@@ -20,6 +20,6 @@ Which day of the month is 29 February 2012?
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::getDate(new DateTimeImmutable('2012-02-29 00:00:00'));
+$result = DateFns::getDate(date: new DateTimeImmutable('2012-02-29 00:00:00'));
 // => 29
 ```

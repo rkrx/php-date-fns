@@ -20,13 +20,15 @@ Format the given duration as ISO 8601 string
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::formatISODuration([
-    'years' => 39,
-    'months' => 2,
-    'days' => 20,
-    'hours' => 7,
-    'minutes' => 5,
-    'seconds' => 0
-]);
+$result = DateFns::formatISODuration(
+    duration: [
+        'years' => 39,
+        'months' => 2,
+        'days' => 20,
+        'hours' => 7,
+        'minutes' => 5,
+        'seconds' => 0
+        ]
+);
 // => 'P39Y2M20DT0H0M0S'
 ```

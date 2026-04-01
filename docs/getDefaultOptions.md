@@ -29,9 +29,11 @@ $result = DateFns::getDefaultOptions();
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-DateFns::setDefaultOptions([
-    'weekStarsOn' => 1,
-    'firstWeekContainsDate' => 4 ]);
+DateFns::setDefaultOptions(
+    options: [
+        'weekStarsOn' => 1,
+        'firstWeekContainsDate' => 4 ]
+);
 $result = DateFns::getDefaultOptions();
 // => [
     'weekStarsOn' => 1,

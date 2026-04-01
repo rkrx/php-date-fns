@@ -21,6 +21,6 @@ Add 4 weeks to 1 September 2014:
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::addWeeks(new DateTimeImmutable('2014-09-01 00:00:00'), 4);
+$result = DateFns::addWeeks(date: new DateTimeImmutable('2014-09-01 00:00:00'), amount: 4);
 // => Mon Sep 29 2014 00:00:00
 ```

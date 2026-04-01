@@ -20,6 +20,6 @@ Is 24 September 2014 Wednesday?
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::isWednesday(new DateTimeImmutable('2014-09-24 00:00:00'));
+$result = DateFns::isWednesday(date: new DateTimeImmutable('2014-09-24 00:00:00'));
 // => true
 ```

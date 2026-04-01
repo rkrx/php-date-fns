@@ -21,7 +21,7 @@ How many calendar weeks does February 2015 span?
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::getWeeksInMonth(new DateTimeImmutable('2015-02-08 00:00:00'));
+$result = DateFns::getWeeksInMonth(date: new DateTimeImmutable('2015-02-08 00:00:00'));
 // => 4
 ```
 
@@ -32,7 +32,10 @@ If the week starts on Monday, how many calendar weeks does July 2017 span?
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::getWeeksInMonth(new DateTimeImmutable('2017-07-05 00:00:00'), [
-    'weekStartsOn' => 1 ]);
+$result = DateFns::getWeeksInMonth(
+    date: new DateTimeImmutable('2017-07-05 00:00:00'),
+    options: [
+        'weekStartsOn' => 1 ]
+);
 // => 6
 ```

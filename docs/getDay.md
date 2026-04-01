@@ -20,6 +20,6 @@ Which day of the week is 29 February 2012?
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::getDay(new DateTimeImmutable('2012-02-29 00:00:00'));
+$result = DateFns::getDay(date: new DateTimeImmutable('2012-02-29 00:00:00'));
 // => 3
 ```

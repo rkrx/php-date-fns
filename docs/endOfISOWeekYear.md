@@ -20,6 +20,6 @@ The end of an ISO week-numbering year for 2 July 2005:
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::endOfISOWeekYear(new DateTimeImmutable('2005-07-02 00:00:00'));
+$result = DateFns::endOfISOWeekYear(date: new DateTimeImmutable('2005-07-02 00:00:00'));
 // => Sun Jan 01 2006 23:59:59.999
 ```

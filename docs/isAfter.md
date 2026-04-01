@@ -21,6 +21,6 @@ Is 10 July 1989 after 11 February 1987?
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::isAfter(new DateTimeImmutable('1989-07-10 00:00:00'), new DateTimeImmutable('1987-02-11 00:00:00'));
+$result = DateFns::isAfter(date: new DateTimeImmutable('1989-07-10 00:00:00'), dateToCompare: new DateTimeImmutable('1987-02-11 00:00:00'));
 // => true
 ```

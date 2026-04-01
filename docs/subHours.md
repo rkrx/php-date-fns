@@ -21,6 +21,6 @@ Subtract 2 hours from 11 July 2014 01:00:00:
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::subHours(new DateTimeImmutable('2014-07-11 01:00:00'), 2);
+$result = DateFns::subHours(date: new DateTimeImmutable('2014-07-11 01:00:00'), amount: 2);
 // => Thu Jul 10 2014 23:00:00
 ```

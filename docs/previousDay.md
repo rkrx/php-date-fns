@@ -21,7 +21,7 @@ When is the previous Monday before Mar, 20, 2020?
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::previousDay(new DateTimeImmutable('2020-03-20 00:00:00'), 1);
+$result = DateFns::previousDay(date: new DateTimeImmutable('2020-03-20 00:00:00'), day: 1);
 // => Mon Mar 16 2020 00:00:00
 ```
 
@@ -32,6 +32,6 @@ When is the previous Tuesday before Mar, 21, 2020?
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::previousDay(new DateTimeImmutable('2020-03-21 00:00:00'), 2);
+$result = DateFns::previousDay(date: new DateTimeImmutable('2020-03-21 00:00:00'), day: 2);
 // => Tue Mar 17 2020 00:00:00
 ```

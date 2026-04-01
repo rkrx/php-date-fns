@@ -20,6 +20,6 @@ If today is 25 September 2014, is 22 September 2014 in this ISO week?
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::isThisISOWeek(new DateTimeImmutable('2014-09-22 00:00:00'));
+$result = DateFns::isThisISOWeek(date: new DateTimeImmutable('2014-09-22 00:00:00'));
 // => true
 ```

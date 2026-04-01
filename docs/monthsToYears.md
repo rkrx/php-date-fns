@@ -20,10 +20,10 @@ Convert 36 months to years:
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::monthsToYears(36);
+$result = DateFns::monthsToYears(months: 36);
 // => 3
 
 // It uses floor rounding:
-$result = DateFns::monthsToYears(40);
+$result = DateFns::monthsToYears(months: 40);
 // => 3
 ```

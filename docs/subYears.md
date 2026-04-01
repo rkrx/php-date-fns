@@ -21,6 +21,6 @@ Subtract 5 years from 1 September 2014:
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::subYears(new DateTimeImmutable('2014-09-01 00:00:00'), 5);
+$result = DateFns::subYears(date: new DateTimeImmutable('2014-09-01 00:00:00'), amount: 5);
 // => Tue Sep 01 2009 00:00:00
 ```

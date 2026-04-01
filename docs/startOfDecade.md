@@ -20,6 +20,6 @@ The start of a decade for 21 October 2015 00:00:00:
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::startOfDecade(new DateTimeImmutable('2015-10-21 00:00:00'));
+$result = DateFns::startOfDecade(date: new DateTimeImmutable('2015-10-21 00:00:00'));
 // => Jan 01 2010 00:00:00
 ```

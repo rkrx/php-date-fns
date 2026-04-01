@@ -21,6 +21,6 @@ Set the 30th day of the month to 1 September 2014:
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::setDate(new DateTimeImmutable('2014-09-01 00:00:00'), 30);
+$result = DateFns::setDate(date: new DateTimeImmutable('2014-09-01 00:00:00'), day: 30);
 // => Tue Sep 30 2014 00:00:00
 ```

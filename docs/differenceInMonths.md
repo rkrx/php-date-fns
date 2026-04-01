@@ -21,6 +21,6 @@ How many full months are between 31 January 2014 and 1 September 2014?
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::differenceInMonths(new DateTimeImmutable('2014-09-01 00:00:00'), new DateTimeImmutable('2014-01-31 00:00:00'));
+$result = DateFns::differenceInMonths(laterDate: new DateTimeImmutable('2014-09-01 00:00:00'), earlierDate: new DateTimeImmutable('2014-01-31 00:00:00'));
 // => 7
 ```

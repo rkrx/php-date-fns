@@ -20,6 +20,6 @@ Which year is 2 July 2014?
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::getYear(new DateTimeImmutable('2014-07-02 00:00:00'));
+$result = DateFns::getYear(date: new DateTimeImmutable('2014-07-02 00:00:00'));
 // => 2014
 ```

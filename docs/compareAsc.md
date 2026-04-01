@@ -21,7 +21,7 @@ Compare 11 February 1987 and 10 July 1989:
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::compareAsc(new DateTimeImmutable('1987-02-11 00:00:00'), new DateTimeImmutable('1989-07-10 00:00:00'));
+$result = DateFns::compareAsc(dateLeft: new DateTimeImmutable('1987-02-11 00:00:00'), dateRight: new DateTimeImmutable('1989-07-10 00:00:00'));
 // => -1
 ```
 

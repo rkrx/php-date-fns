@@ -20,7 +20,7 @@ Lists all Saturdays and Sundays in the given month
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::eachWeekendOfMonth(new DateTimeImmutable('2022-02-01 00:00:00'));
+$result = DateFns::eachWeekendOfMonth(date: new DateTimeImmutable('2022-02-01 00:00:00'));
 // => [
 //   Sat Feb 05 2022 00:00:00,
 //   Sun Feb 06 2022 00:00:00,

@@ -20,6 +20,6 @@ If today is 6 October 2014, is 6 October 14:00:00 today?
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::isToday(new DateTimeImmutable('2014-10-06 14:00:00'));
+$result = DateFns::isToday(date: new DateTimeImmutable('2014-10-06 14:00:00'));
 // => true
 ```

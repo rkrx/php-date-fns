@@ -32,6 +32,6 @@ Transpose the date to July 10, 2022 00:00 in UTC
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-DateFns::transpose(date, UTCDate);
+DateFns::transpose(date: date, constructor: UTCDate);
 // => 'Sun Jul 10 2022 00:00:00 GMT+0000 (Coordinated Universal Time)'
 ```

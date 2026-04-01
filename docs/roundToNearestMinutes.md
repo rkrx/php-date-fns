@@ -21,7 +21,7 @@ Round 10 July 2014 12:12:34 to nearest minute:
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::roundToNearestMinutes(new DateTimeImmutable('2014-07-10 12:12:34'));
+$result = DateFns::roundToNearestMinutes(date: new DateTimeImmutable('2014-07-10 12:12:34'));
 // => Thu Jul 10 2014 12:13:00
 ```
 
@@ -32,8 +32,11 @@ Round 10 July 2014 12:12:34 to nearest quarter hour:
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::roundToNearestMinutes(new DateTimeImmutable('2014-07-10 12:12:34'), [
-    'nearestTo' => 15 ]);
+$result = DateFns::roundToNearestMinutes(
+    date: new DateTimeImmutable('2014-07-10 12:12:34'),
+    options: [
+        'nearestTo' => 15 ]
+);
 // => Thu Jul 10 2014 12:15:00
 ```
 
@@ -44,8 +47,11 @@ Floor (rounds down) 10 July 2014 12:12:34 to nearest minute:
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::roundToNearestMinutes(new DateTimeImmutable('2014-07-10 12:12:34'), [
-    'roundingMethod' => 'floor' ]);
+$result = DateFns::roundToNearestMinutes(
+    date: new DateTimeImmutable('2014-07-10 12:12:34'),
+    options: [
+        'roundingMethod' => 'floor' ]
+);
 // => Thu Jul 10 2014 12:12:00
 ```
 
@@ -56,8 +62,11 @@ Ceil (rounds up) 10 July 2014 12:12:34 to nearest half hour:
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::roundToNearestMinutes(new DateTimeImmutable('2014-07-10 12:12:34'), [
-    'roundingMethod' => 'ceil',
-    'nearestTo' => 30 ]);
+$result = DateFns::roundToNearestMinutes(
+    date: new DateTimeImmutable('2014-07-10 12:12:34'),
+    options: [
+        'roundingMethod' => 'ceil',
+        'nearestTo' => 30 ]
+);
 // => Thu Jul 10 2014 12:30:00
 ```

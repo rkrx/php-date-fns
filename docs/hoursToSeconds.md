@@ -20,6 +20,6 @@ Convert 2 hours to seconds:
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::hoursToSeconds(2);
+$result = DateFns::hoursToSeconds(hours: 2);
 // => 7200
 ```

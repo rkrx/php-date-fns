@@ -20,6 +20,6 @@ When is the previous Wednesday before Jun, 18, 2021?
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::previousWednesday(new DateTimeImmutable('2021-06-18 00:00:00'));
+$result = DateFns::previousWednesday(date: new DateTimeImmutable('2021-06-18 00:00:00'));
 // => Wed June 16 2021 00:00:00
 ```

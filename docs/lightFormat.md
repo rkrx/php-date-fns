@@ -20,7 +20,9 @@ Format the date.
 use DateFns\DateFns;
 use DateTimeImmutable;
 
-$result = DateFns::lightFormat(new DateTimeImmutable('2014-02-11 00:00:00'),
-    'yyyy-MM-dd');
+$result = DateFns::lightFormat(
+    date: new DateTimeImmutable('2014-02-11 00:00:00'),
+    format: 'yyyy-MM-dd'
+);
 // => '2014-02-11'
 ```
