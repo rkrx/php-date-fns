@@ -1189,16 +1189,16 @@ trait CommonHelpers {
 	/**
 	 * Return the latest of the given dates.
 	 *
-	 * @param array<DateTimeInterface|string|int> $datesArray
+	 * @param DateTimeInterface|string|int ...$dates
 	 * @return DateTimeImmutable
 	 */
-	public static function max(array $datesArray): DateTimeImmutable {
-		if(empty($datesArray)) {
-			throw new RuntimeException('datesArray cannot be empty'); // Or Invalid date? JS date-fns returns Invalid Date
+	public static function max(DateTimeInterface|string|int ...$dates): DateTimeImmutable {
+		if(empty($dates)) {
+			throw new RuntimeException('dates cannot be empty'); // Or Invalid date? JS date-fns returns Invalid Date
 		}
 
 		$maxDate = null;
-		foreach($datesArray as $date) {
+		foreach($dates as $date) {
 			$date = self::ensureDateTime($date);
 			if(!$maxDate instanceof DateTimeImmutable || $date > $maxDate) {
 				$maxDate = $date;
@@ -1211,16 +1211,16 @@ trait CommonHelpers {
 	/**
 	 * Returns the earliest of the given dates.
 	 *
-	 * @param array<DateTimeInterface|string|int> $datesArray
+	 * @param DateTimeInterface|string|int ...$dates
 	 * @return DateTimeImmutable
 	 */
-	public static function min(array $datesArray): DateTimeImmutable {
-		if(empty($datesArray)) {
-			throw new RuntimeException('datesArray cannot be empty');
+	public static function min(DateTimeInterface|string|int ...$dates): DateTimeImmutable {
+		if(empty($dates)) {
+			throw new RuntimeException('dates cannot be empty');
 		}
 
 		$minDate = null;
-		foreach($datesArray as $date) {
+		foreach($dates as $date) {
 			$date = self::ensureDateTime($date);
 			if(!$minDate instanceof DateTimeImmutable || $date < $minDate) {
 				$minDate = $date;

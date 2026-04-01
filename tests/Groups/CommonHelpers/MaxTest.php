@@ -5,6 +5,7 @@ namespace DateFns\Groups\CommonHelpers;
 use DateFns\DateFns;
 use DateTimeImmutable;
 use PHPUnit\Framework\TestCase;
+use RuntimeException;
 
 class MaxTest extends TestCase {
 	/**
@@ -17,7 +18,7 @@ class MaxTest extends TestCase {
 			new DateTimeImmutable('2022-06-01'),
 		];
 
-		$result = DateFns::max($dates);
+		$result = DateFns::max(...$dates);
 
 		$this->assertEquals('2023-01-01', $result->format('Y-m-d'));
 	}
@@ -32,8 +33,18 @@ class MaxTest extends TestCase {
 			1654041600, // 2022-06-01
 		];
 
-		$result = DateFns::max($dates);
+		$result = DateFns::max(...$dates);
 
 		$this->assertEquals('2023-01-01', $result->format('Y-m-d'));
+	}
+
+	/**
+	 * @test
+	 */
+	public function throws_if_no_dates_are_given(): void {
+		$this->expectException(RuntimeException::class);
+		$this->expectExceptionMessage('dates cannot be empty');
+
+		DateFns::max();
 	}
 }

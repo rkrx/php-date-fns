@@ -94,9 +94,9 @@ echo DateFns::format($shifted, 'yyyy-MM-dd HH:mm:ss');
   Is the given date valid?
 - [`DateFns::lightFormat($date, string $format): string`](docs/lightFormat.md)<br />
   Format the date.
-- [`DateFns::max(array $datesArray): DateTimeImmutable`](docs/max.md)<br />
+- [`DateFns::max(DateTimeInterface|string|int ...$dates): DateTimeImmutable`](docs/max.md)<br />
   Return the latest of the given dates.
-- [`DateFns::min(array $datesArray): DateTimeImmutable`](docs/min.md)<br />
+- [`DateFns::min(DateTimeInterface|string|int ...$dates): DateTimeImmutable`](docs/min.md)<br />
   Returns the earliest of the given dates.
 - [`DateFns::parse(string $dateString, string $formatString, $referenceDate, array $options = []): DateTimeImmutable`](docs/parse.md)<br />
   Parse the date.

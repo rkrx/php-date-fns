@@ -5,6 +5,7 @@ namespace DateFns\Groups\CommonHelpers;
 use DateFns\DateFns;
 use DateTimeImmutable;
 use PHPUnit\Framework\TestCase;
+use RuntimeException;
 
 class MinTest extends TestCase {
 	/**
@@ -17,7 +18,7 @@ class MinTest extends TestCase {
 			new DateTimeImmutable('2022-06-01'),
 		];
 
-		$result = DateFns::min($dates);
+		$result = DateFns::min(...$dates);
 
 		$this->assertEquals('2022-01-01', $result->format('Y-m-d'));
 	}
@@ -32,8 +33,18 @@ class MinTest extends TestCase {
 			1654041600, // 2022-06-01
 		];
 
-		$result = DateFns::min($dates);
+		$result = DateFns::min(...$dates);
 
 		$this->assertEquals('2022-01-01', $result->format('Y-m-d'));
+	}
+
+	/**
+	 * @test
+	 */
+	public function throws_if_no_dates_are_given(): void {
+		$this->expectException(RuntimeException::class);
+		$this->expectExceptionMessage('dates cannot be empty');
+
+		DateFns::min();
 	}
 }
