@@ -1,6 +1,6 @@
 # PHP DateFns
 
-**PHP DateFns** is a PHP adaptation of the JavaScript [date-fns](https://date-fns.org/) toolkit, bringing the same functional, immutable date utilities to PHP 8 projects. The sections below link to the generated PHP documentation for every helper.
+**PHP DateFns** is a PHP adaptation of the JavaScript [date-fns](https://date-fns.org/) toolkit (v4.1.0), bringing the same functional, immutable date utilities to PHP 8 projects. The sections below link to the generated PHP documentation for every helper.
 
 ## Installation
 
