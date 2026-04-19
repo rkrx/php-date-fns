@@ -271,16 +271,8 @@ trait CommonHelpers {
 		$dateLeft = self::ensureDateTime($date);
 		$dateRight = self::ensureDateTime($baseDate);
 
-		// ensureDateTime is not implemented yet, using inline logic or assuming inputs for now,
-		// but test uses DateTimeImmutable. Let's start by normalizing.
-		// Actually best to add a private helper normalize or just do it here.
-		// date-fns uses isLastDayOfMonth checks.
-
 		$comparison = $dateLeft <=> $dateRight;
-		$dateLeftTimestamp = (float) $dateLeft->format('U.u');
-		$dateRightTimestamp = (float) $dateRight->format('U.u');
 
-		// Swap to have easier calculation
 		if($comparison > 0) {
 			$earlier = $dateRight;
 			$later = $dateLeft;
@@ -289,9 +281,9 @@ trait CommonHelpers {
 			$later = $dateRight;
 		}
 
-		$seconds = round(abs($dateLeftTimestamp - $dateRightTimestamp));
-		$minutes = (int) round($seconds / 60);
-		$months = 0;
+		$interval = $earlier->diff($later);
+		$seconds = round(abs(self::differenceInPreciseSeconds($later, $earlier)));
+		$minutes = (int) round(self::dateIntervalToTotalSeconds($interval) / 60);
 
 		$includeSeconds = $options['includeSeconds'] ?? false;
 		$addSuffix = $options['addSuffix'] ?? false;
@@ -350,36 +342,7 @@ trait CommonHelpers {
 			$token = 'aboutXMonths';
 			$count = $months;
 		} else {
-			// differenceInMonths logic inline
-			// $diff = ($y2 - $y1) * 12 + ($m2 - $m1)
-			$y1 = (int) $earlier->format('Y');
-			$m1 = (int) $earlier->format('n');
-			$d1 = (int) $earlier->format('j');
-
-			$y2 = (int) $later->format('Y');
-			$m2 = (int) $later->format('n');
-			$d2 = (int) $later->format('j');
-
-			$months = ($y2 - $y1) * 12 + ($m2 - $m1);
-
-			// Adjust if day is later in split
-			// If d1 > d2, we likely haven't reached the full month yet, unless...
-			// e.g. jan 31 to feb 28 (non leap).
-			// Let's check by adding months to earlier date.
-			$tempDate = $earlier->modify("+$months months");
-			// If adding simple months overshot $later, decrement.
-			// But modify bubbling might be tricky.
-			// Standard approach: if day of month of later is less than day of month of earlier,
-			// and we are not in end-of-month edge case.
-
-			// date-fns uses isLastDayOfMonth checks.
-			// Let's stick to simple approximation if possible or check if temp > later.
-			if($tempDate > $later) {
-				// Check if it's the specific edge case?
-				// Simple check:
-				$months--;
-			}
-			// date-fns calculates diff, then handles < 12 separately.
+			$months = self::dateIntervalToTotalMonths($interval);
 
 			if($months < 12) {
 				$nearestMonth = (int) round($minutes / 43200);
@@ -421,6 +384,26 @@ trait CommonHelpers {
 		return $res;
 	}
 
+	/**
+	 * @param DateTimeInterface|string|int|float|null $date
+	 * @return DateTimeImmutable
+	 */
+	public static function ensureDateTime(DateTimeInterface|int|float|string|null $date): DateTimeImmutable {
+		if($date instanceof DateTimeImmutable) {
+			return $date;
+		}
+
+		if($date instanceof DateTime) {
+			return DateTimeImmutable::createFromMutable($date);
+		}
+
+		if(is_int($date) || is_float($date)) {
+			return new DateTimeImmutable('@' . (int) $date);
+		}
+
+		return new DateTimeImmutable((string) $date);
+	}
+
 	private static function localizeFormatDistance(string $token, int $count): string {
 		return match ($token) {
 			'lessThanXSeconds' => 'less than ' . $count . ' seconds',
@@ -439,26 +422,6 @@ trait CommonHelpers {
 			'xYears' => $count === 1 ? '1 year' : $count . ' years',
 			default => '',
 		};
-	}
-
-	/**
-	 * @param DateTimeInterface|string|int|float|null $date
-	 * @return DateTimeImmutable
-	 */
-	private static function ensureDateTime(DateTimeInterface|int|float|string|null $date): DateTimeImmutable {
-		if($date instanceof DateTimeImmutable) {
-			return $date;
-		}
-
-		if($date instanceof DateTime) {
-			return DateTimeImmutable::createFromMutable($date);
-		}
-
-		if(is_int($date) || is_float($date)) {
-			return new DateTimeImmutable('@' . (int) $date);
-		}
-
-		return new DateTimeImmutable((string) $date);
 	}
 
 	/**
@@ -484,14 +447,11 @@ trait CommonHelpers {
 			$later = $dateRight;
 		}
 
-		$milliseconds = ((float) $later->format('U.u') - (float) $earlier->format('U.u')) * 1000;
+		$interval = $earlier->diff($later);
+		$milliseconds = self::differenceInPreciseSeconds($later, $earlier) * 1000;
 		$minutes = $milliseconds / 60000;
-
-		$earlierOffset = $earlier->getOffset() * 1000;
-		$laterOffset = $later->getOffset() * 1000;
-		$timezoneOffset = $earlierOffset - $laterOffset;
-
-		$dstNormalizedMinutes = ($milliseconds - $timezoneOffset) / 60000;
+		$dstNormalizedMinutes = self::dateIntervalToTotalSeconds($interval) / 60;
+		$hasFullDayBoundary = self::dateIntervalToTotalDays($interval) > 0;
 
 		$defaultUnit = $options['unit'] ?? null;
 		$unit = $defaultUnit;
@@ -505,7 +465,7 @@ trait CommonHelpers {
 				$unit = 'second';
 			} elseif($minutes < 60) {
 				$unit = 'minute';
-			} elseif($minutes < $minutesInDay) {
+			} elseif(!$hasFullDayBoundary && $minutes < $minutesInDay) {
 				$unit = 'hour';
 			} elseif($dstNormalizedMinutes < $minutesInMonth) {
 				$unit = 'day';
@@ -1587,8 +1547,34 @@ trait CommonHelpers {
 		return (string) $value;
 	}
 
+	private static function differenceInPreciseSeconds(DateTimeInterface $later, DateTimeInterface $earlier): float {
+		return (float) $later->format('U.u') - (float) $earlier->format('U.u');
+	}
+
+	private static function dateIntervalToTotalSeconds(DateInterval $interval): float {
+		$days = self::dateIntervalToTotalDays($interval);
+
+		return ($days * 86400)
+			+ ($interval->h * 3600)
+			+ ($interval->i * 60)
+			+ $interval->s
+			+ $interval->f;
+	}
+
+	private static function dateIntervalToTotalDays(DateInterval $interval): int {
+		if(is_int($interval->days)) {
+			return $interval->days;
+		}
+
+		return $interval->d;
+	}
+
+	private static function dateIntervalToTotalMonths(DateInterval $interval): int {
+		return ($interval->y * 12) + $interval->m;
+	}
+
 	private static function differenceInSecondsInternal(DateTimeInterface $later, DateTimeInterface $earlier): int {
-		$diff = (float) $later->format('U.u') - (float) $earlier->format('U.u');
+		$diff = self::differenceInPreciseSeconds($later, $earlier);
 
 		return self::truncateToZero($diff);
 	}
