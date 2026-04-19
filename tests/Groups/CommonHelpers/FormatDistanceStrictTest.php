@@ -4,6 +4,7 @@ namespace DateFns\Groups\CommonHelpers;
 
 use DateFns\DateFns;
 use DateTimeImmutable;
+use DateTimeZone;
 use PHPUnit\Framework\TestCase;
 
 class FormatDistanceStrictTest extends TestCase {
@@ -80,6 +81,18 @@ class FormatDistanceStrictTest extends TestCase {
 		$result = DateFns::formatDistanceStrict(
 			new DateTimeImmutable('1986-04-04 10:32:00'),
 			new DateTimeImmutable('1986-04-05 10:32:00')
+		);
+		$this->assertEquals('1 day', $result);
+	}
+
+	/**
+	 * @test
+	 */
+	public function treats_same_local_time_across_dst_start_as_one_day(): void {
+		$timezone = new DateTimeZone('Europe/Berlin');
+		$result = DateFns::formatDistanceStrict(
+			new DateTimeImmutable('2024-03-30 12:00:00', $timezone),
+			new DateTimeImmutable('2024-03-31 12:00:00', $timezone)
 		);
 		$this->assertEquals('1 day', $result);
 	}
